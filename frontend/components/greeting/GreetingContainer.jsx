@@ -4,6 +4,7 @@ import Greeting from './Greeting';
 
 const mapStateToProps = ({ session, entities: { users } }) => ({
   currentUser: users[session.id],
+  showDropdown: false,
 });
 
 const mapDispatchToProps = dispatch => ({
