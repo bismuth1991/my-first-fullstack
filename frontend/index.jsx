@@ -1,18 +1,16 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import configureStore from './store/store';
+import Root from './components/Root';
+
+window.configureStore = configureStore;
 
 document.addEventListener('DOMContentLoaded', () => {
+  const root = document.getElementById('root');
   const store = configureStore();
 
-  // TEST
-  window.store = store;
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  // ////
-
-  ReactDom.render(
-    <h1>Welcome to ZingLite</h1>,
-    document.getElementById('root'),
+  ReactDOM.render(
+    <Root store={store} />,
+    root,
   );
 });
