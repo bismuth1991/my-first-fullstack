@@ -73,18 +73,11 @@ class Greeting extends React.Component {
   }
 }
 
-Greeting.defaultProps = {
-  currentUser: {
-    id: 0,
-    email: 'test@aa.io',
-  },
-};
-
 Greeting.propTypes = {
   currentUser: propTypes.shape({
     id: propTypes.number.isRequired,
     email: propTypes.string.isRequired,
-  }),
+  }).isRequired,
   logout: propTypes.func.isRequired,
 };
 
