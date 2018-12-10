@@ -15,6 +15,20 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const navLogIn = document.getElementById('form-nav-login');
+    const navSignUp = document.getElementById('form-nav-signup');
+    const { formType } = this.props;
+
+    if (formType === 'LOG IN') {
+      navLogIn.classList.add('active');
+      navSignUp.classList.remove('active');
+    } else {
+      navLogIn.classList.remove('active');
+      navSignUp.classList.add('active');
+    }
+  }
+
   handleChange(inputField) {
     return e => this.setState({
       [inputField]: e.target.value,
@@ -57,13 +71,13 @@ class SessionForm extends React.Component {
 
           <nav className="form-nav">
             <ul>
-              <li className="active">
+              <li id="form-nav-login">
                 {/* <a href="#">LOG IN</a> */}
                 <Link className="form-nav-tab" to="/login">LOG IN</Link>
                 <span className="form-nav-line" />
               </li>
 
-              <li>
+              <li id="form-nav-signup">
                 {/* <a href="#">SIGN UP</a> */}
                 <Link className="form-nav-tab" to="/signup">SIGN UP</Link>
                 <span className="form-nav-line" />
