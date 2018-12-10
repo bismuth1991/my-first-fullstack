@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
-import { signup } from '../../util/session_api_utils';
+import { signup } from '../../actions/session_actions';
 
 const mapStateToProps = ({ errors }) => ({
   errors: errors.session,

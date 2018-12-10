@@ -69,15 +69,22 @@ class Greeting extends React.Component {
       </>
     );
 
-    return currentUser ? personalGreeting() : guestGreeting();
+    return currentUser.id !== null ? personalGreeting() : guestGreeting();
   }
 }
 
+Greeting.defaultProps = {
+  currentUser: {
+    id: null,
+    email: null,
+  },
+};
+
 Greeting.propTypes = {
   currentUser: propTypes.shape({
-    id: propTypes.number.isRequired,
-    email: propTypes.string.isRequired,
-  }).isRequired,
+    id: propTypes.number,
+    email: propTypes.string,
+  }),
   logout: propTypes.func.isRequired,
 };
 

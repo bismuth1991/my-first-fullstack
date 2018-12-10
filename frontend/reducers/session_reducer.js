@@ -2,12 +2,13 @@ import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_ac
 
 const nullUser = {
   id: null,
+  email: null,
 };
 
 const sessionReducer = (state = nullUser, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return { id: action.user.id };
+      return { ...action.currentUser };
     case LOGOUT_CURRENT_USER:
       return nullUser;
     default:
