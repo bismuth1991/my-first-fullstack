@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -71,5 +72,21 @@ class Greeting extends React.Component {
     return currentUser ? personalGreeting() : guestGreeting();
   }
 }
+
+Greeting.defaultProps = {
+  currentUser: {
+    id: 0,
+    email: 'test@aa.io',
+  },
+};
+
+Greeting.propTypes = {
+  currentUser: propTypes.shape({
+    id: propTypes.number.isRequired,
+    email: propTypes.string.isRequired,
+  }),
+  logout: propTypes.func.isRequired,
+};
+
 
 export default Greeting;

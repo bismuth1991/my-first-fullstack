@@ -27,15 +27,22 @@ class SessionForm extends React.Component {
     const user = { ...this.state };
 
     processForm(user);
+
+    this.setState({
+      email: '',
+      password: '',
+    });
   }
 
   renderErrors() {
     const { errors } = this.props;
 
     return (
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
+      <label>
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
+      </label>
     );
   }
 
@@ -65,7 +72,7 @@ class SessionForm extends React.Component {
 
           <form className="form-session" onSubmit={this.handleSubmit}>
             <label>
-              <i className="fas fa-at" />
+              {/* <i className="fas fa-at" /> */}
               <input
                 type="text"
                 placeholder="EMAIL"
@@ -75,7 +82,7 @@ class SessionForm extends React.Component {
             </label>
 
             <label>
-              <i className="fas fa-unlock-alt" />
+              {/* <i className="fas fa-unlock-alt" /> */}
               <input
                 type="password"
                 placeholder="PASSWORD"
@@ -83,6 +90,8 @@ class SessionForm extends React.Component {
                 onChange={this.handleChange('password')}
               />
             </label>
+
+            {this.renderErrors()}
 
             <button type="submit">{formType}</button>
           </form>
@@ -92,3 +101,5 @@ class SessionForm extends React.Component {
     );
   }
 }
+
+export default SessionForm;
