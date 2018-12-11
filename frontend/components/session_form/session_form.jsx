@@ -18,7 +18,9 @@ class SessionForm extends React.Component {
   componentDidMount() {
     const navLogIn = document.getElementById('form-nav-login');
     const navSignUp = document.getElementById('form-nav-signup');
-    const { formType } = this.props;
+    const { formType, clearErrors } = this.props;
+
+    clearErrors();
 
     if (formType === 'LOG IN') {
       navLogIn.classList.add('active');
@@ -121,6 +123,7 @@ SessionForm.propTypes = {
   formType: propTypes.string.isRequired,
   errors: propTypes.arrayOf(propTypes.string).isRequired,
   processForm: propTypes.func.isRequired,
+  clearErrors: propTypes.func.isRequired,
 };
 
 export default SessionForm;
