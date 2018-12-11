@@ -65,7 +65,7 @@ class SessionForm extends React.Component {
 
   render() {
     const { email, password } = this.state;
-    const { formType } = this.props;
+    const { formType, loginDemoUser } = this.props;
 
     return (
       <div className="form">
@@ -114,7 +114,13 @@ class SessionForm extends React.Component {
           </form>
         </div>
 
-        <button className="demo-button" type="submit">DEMO USER</button>
+        <button
+          className="demo-button"
+          type="submit"
+          onClick={loginDemoUser}
+        >
+          DEMO LOGIN
+        </button>
       </div>
     );
   }
@@ -125,6 +131,7 @@ SessionForm.propTypes = {
   errors: propTypes.arrayOf(propTypes.string).isRequired,
   processForm: propTypes.func.isRequired,
   clearErrors: propTypes.func.isRequired,
+  loginDemoUser: propTypes.func.isRequired,
 };
 
 export default SessionForm;
