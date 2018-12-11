@@ -112,8 +112,9 @@ class SessionForm extends React.Component {
 
             <button type="submit">{formType}</button>
           </form>
-
         </div>
+
+        <button className="demo-button" type="submit">DEMO USER</button>
       </div>
     );
   }
