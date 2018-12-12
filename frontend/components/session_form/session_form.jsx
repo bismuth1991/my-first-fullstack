@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
     return (
       <label>
         <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          {errors.map((error, idx) => <li key={idx} className="session-error">{error}</li>)}
         </ul>
       </label>
     );
@@ -74,13 +74,11 @@ class SessionForm extends React.Component {
           <nav className="form-nav">
             <ul>
               <li id="form-nav-login">
-                {/* <a href="#">LOG IN</a> */}
                 <Link className="form-nav-tab" to="/login">LOG IN</Link>
                 <span className="form-nav-line" />
               </li>
 
               <li id="form-nav-signup">
-                {/* <a href="#">SIGN UP</a> */}
                 <Link className="form-nav-tab" to="/signup">SIGN UP</Link>
                 <span className="form-nav-line" />
               </li>
@@ -89,7 +87,7 @@ class SessionForm extends React.Component {
 
           <form className="form-session" onSubmit={this.handleSubmit}>
             <label>
-              {/* <i className="fas fa-at" /> */}
+              <i className="fas fa-at" />
               <input
                 type="text"
                 placeholder="EMAIL"
@@ -99,7 +97,7 @@ class SessionForm extends React.Component {
             </label>
 
             <label>
-              {/* <i className="fas fa-unlock-alt" /> */}
+              <i className="fas fa-unlock-alt" />
               <input
                 type="password"
                 placeholder="PASSWORD"
