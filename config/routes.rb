@@ -3,9 +3,8 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
 
-    resources :songs, only: [:index] do 
-      get "search", on: :collection
-    end 
+    resources :songs, only: [:index]  
+    resources :searches, only: [:index]
   end 
   
   root to: 'static_pages#root'

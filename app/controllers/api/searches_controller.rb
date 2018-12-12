@@ -1,13 +1,13 @@
 class Api::SearchesController < ApplicationController
-  def search
+  def index
     if params[:query].present?
-      songs = Song.where('title ~ ?', params[:query])
-      artist = Artist.where('name ~ ?', params[:query]).limit(3)
-      albums = Album.where('name ~ ?', params[:query]).limit(3)
+      @songs = Song.where('title ~ ?', params[:query])
+      @artist = Artist.where('name ~ ?', params[:query]).limit(3)
+      @albums = Album.where('name ~ ?', params[:query]).limit(3)
 
-      @search_result = [songs, artists, albums]
+      render :index
     else
-      @search_result = []
+      render json: []
     end
   end
 end
