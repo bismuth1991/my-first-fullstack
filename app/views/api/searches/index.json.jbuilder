@@ -10,9 +10,9 @@ json.songs do
 end
 
 json.artists do 
-  json.array! @artists, :name
+  json.array! @artists, :id, :name
 end
 
 json.albums do 
-  json.array! @albums, :name
+  json.array! @albums, :id, :name
 end

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -125,11 +125,11 @@ class SessionForm extends React.Component {
 }
 
 SessionForm.propTypes = {
-  formType: propTypes.string.isRequired,
-  errors: propTypes.arrayOf(propTypes.string).isRequired,
-  processForm: propTypes.func.isRequired,
-  clearErrors: propTypes.func.isRequired,
-  loginDemoUser: propTypes.func.isRequired,
+  formType: PropTypes.string.isRequired,
+  errors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  processForm: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired,
+  loginDemoUser: PropTypes.func.isRequired,
 };
 
 export default SessionForm;
