@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SongItem from './song_item';
+import ArtistItem from './artist_item';
+import AlbumItem from './album_item';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -44,12 +46,12 @@ class SearchBar extends React.Component {
 
         <ul>
           <li>Artists</li>
-          {artists.map(artist => <li key={artist.id}>{artist.name}</li>)}
+          {artists.map(artist => <li><ArtistItem key={artist.id} name={artist.name} /></li>)}
         </ul>
 
         <ul>
           <li>Albums</li>
-          {albums.map(album => <li key={album.id}>{album.name}</li>)}
+          {albums.map(album => <li><AlbumItem key={album.id} name={album.name} /></li>)}
         </ul>
       </>
     );
