@@ -1,4 +1,3 @@
-
 export const fetchSongsByQuery = query => (
   $.ajax({
     method: 'GET',
