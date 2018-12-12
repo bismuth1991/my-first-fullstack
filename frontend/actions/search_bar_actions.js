@@ -4,7 +4,12 @@ export const RECEIVE_QUERY_SONGS = 'RECEIVE_QUERY_SONGS';
 export const RECEIVE_QUERY_ALBUMS = 'RECEIVE_QUERY_ALBUMS';
 export const RECEIVE_QUERY_ARTISTS = 'RECEIVE_QUERY_ARTISTS';
 
-const receiveQuerySongs = songIds => ({
+const receiveQuerySongs = songs => ({
   type: RECEIVE_QUERY_SONGS,
-  songIds,
+  songs,
 });
+
+export const fetchQuerySongs = query => dispatch => (
+  SearchBarApiUtil.fetchSongsByQuery(query)
+    .then(songs => dispatch(receiveQuerySongs(songs)))
+);
