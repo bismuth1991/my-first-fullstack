@@ -25,7 +25,7 @@ export const fetchQuerySongs = query => dispatch => (
 );
 
 export const fetchQueryArtists = query => dispatch => (
-  SearchBarApiUtil.fetchArtistssByQuery(query)
+  SearchBarApiUtil.fetchArtistsByQuery(query)
     .then(artists => dispatch(receiveQueryArtists(artists)))
 );
 
