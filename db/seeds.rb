@@ -39,6 +39,14 @@ albums = [
   without_me_single = Album.new(name: "Without Me (single)"),
 ]
 
+artists.each do |artist|
+  artist.save!
+end
+
+albums.each do |album|
+  album.save!
+end
+
 # Songs
 songs = [
   both_sides_now = Song.new(title: "Both Sides Now", album_id: have_a_good_night.id, artist_id: sarah_morrau.id),
@@ -61,14 +69,6 @@ songs = [
   thank_u_next = Song.new(title: "Thank U Next", album_id: thank_u_next_single.id, artist_id: ariana_grande.id),
   without_me = Song.new(title: "Without Me", album_id: without_me_single.id, artist_id: halsey.id),
 ]
-
-artists.each do |artist|
-  artist.save!
-end
-
-albums.each do |album|
-  album.save!
-end
 
 songs.each do |song|
   song.save!

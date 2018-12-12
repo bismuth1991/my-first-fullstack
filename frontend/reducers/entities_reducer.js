@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import usersReducer from './users_reducer';
+import searchBarReducer from './search_bar_reducer';
 
 const entitiesReducer = combineReducers({
-  users: usersReducer,
+  searchBar: searchBarReducer,
 });
 
 export default entitiesReducer;
