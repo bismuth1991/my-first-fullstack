@@ -4,6 +4,7 @@ import AuthRoute from '../util/route_util';
 import GreetingContainer from './greeting/greeting_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
+import SearchBarContaier from './search_bar/search_bar_container';
 
 const App = () => (
   <>
@@ -11,6 +12,11 @@ const App = () => (
       <h1>ZingLite</h1>
       <GreetingContainer />
     </header>
+
+    <div>
+      <SearchBarContaier />
+    </div>
+
 
     <AuthRoute path="/login" component={LoginFormContainer} />
     <AuthRoute path="/signup" component={SignupFormContainer} />

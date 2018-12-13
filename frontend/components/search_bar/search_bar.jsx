@@ -16,10 +16,21 @@ class SearchBar extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+
+    this.setState({
+      query: '',
+    });
+  }
+
   handleChange(e) {
     this.setState({
       query: e.target.value,
     });
+
+    const { fetchQueryData } = this.props;
+    fetchQueryData(e.target.value);
   }
 
   render() {
@@ -36,22 +47,34 @@ class SearchBar extends React.Component {
             onChange={this.handleChange}
           />
 
-          <button type="submit">search</button>
+          <button type="submit"><i className="fa fa-search" /></button>
         </form>
 
         <ul>
-          <li>Songs</li>
-          {songs.map(song => <li><SongItem key={song.id} title={song.title} artist={song.artist} album={song.album} /></li>)}
+          <li>
+            <i className="fas fa-music" />
+            SONGS
+          </li>
+
+          {songs.map(song => <li key={song.id}><SongItem title={song.title} artist={song.artist} album={song.album} /></li>)}
         </ul>
 
         <ul>
-          <li>Artists</li>
-          {artists.map(artist => <li><ArtistItem key={artist.id} name={artist.name} /></li>)}
+          <li>
+            <i className="fas fa-user-circle" />
+            ARTISTS
+          </li>
+
+          {artists.map(artist => <li key={artist.id}><ArtistItem name={artist.name} /></li>)}
         </ul>
 
         <ul>
-          <li>Albums</li>
-          {albums.map(album => <li><AlbumItem key={album.id} name={album.name} /></li>)}
+          <li>
+            <i className="fas fa-compact-disc" />
+            ALBUMS
+          </li>
+
+          {albums.map(album => <li key={album.id}><AlbumItem name={album.name} /></li>)}
         </ul>
       </>
     );
@@ -71,8 +94,10 @@ SearchBar.propTypes = {
     album: PropTypes.string,
   })),
 
-  artists: PropTypes.arrayOf(PropTypes.string),
-  albums: PropTypes.arrayOf(PropTypes.string),
+  artists: PropTypes.instanceOf(Array),
+  albums: PropTypes.instanceOf(Array),
+
+  fetchQueryData: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

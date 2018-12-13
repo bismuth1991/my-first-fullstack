@@ -26,7 +26,7 @@ const fetchDataByQuery = query => (
   $.ajax({
     method: 'GET',
     url: '/api/searches',
-    data: query,
+    data: { query },
   })
 );
 

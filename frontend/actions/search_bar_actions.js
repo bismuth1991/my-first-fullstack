@@ -1,4 +1,4 @@
-import * as SearchBarApiUtil from '../util/search_bar_util';
+import fetchDataByQuery from '../util/search_bar_util';
 
 // export const RECEIVE_QUERY_SONGS = 'RECEIVE_QUERY_SONGS';
 // export const RECEIVE_QUERY_ALBUMS = 'RECEIVE_QUERY_ALBUMS';
@@ -10,10 +10,8 @@ const receiveQueryData = data => ({
   data,
 });
 
-export const fetchQueryData = query => dispatch => (
-  SearchBarApiUtil.fetchDataByQuery(query)
-    .then(data => dispatch(receiveQueryData(data)))
-);
+export const fetchQueryData = query => dispatch => fetchDataByQuery(query)
+  .then(data => dispatch(receiveQueryData(data)));
 
 // const receiveQuerySongs = songs => ({
 //   type: RECEIVE_QUERY_SONGS,
