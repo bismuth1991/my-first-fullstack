@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SongItem from './song_item';
-import ArtistItem from './artist_item';
-import AlbumItem from './album_item';
+import SearchResult from './search_result';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -37,39 +35,6 @@ class SearchBar extends React.Component {
     const { query } = this.state;
     const { songs, artists, albums } = this.props;
 
-    const searchResults = () => (!query ? null
-      : (
-        <div className="search-results">
-          <ul>
-            <li>
-              <i className="fas fa-music" />
-          SONGS
-            </li>
-
-            {songs.map(song => <li key={song.id}><SongItem title={song.title} artist={song.artist} album={song.album} /></li>)}
-          </ul>
-
-          <ul>
-            <li>
-              <i className="fas fa-user-circle" />
-          ARTISTS
-            </li>
-
-            {artists.map(artist => <li key={artist.id}><ArtistItem name={artist.name} /></li>)}
-          </ul>
-
-          <ul>
-            <li>
-              <i className="fas fa-compact-disc" />
-          ALBUMS
-            </li>
-
-            {albums.map(album => <li key={album.id}><AlbumItem name={album.name} /></li>)}
-          </ul>
-        </div>
-      )
-    );
-
     return (
       <div className="search-bar">
         <form className="input-wrapper" onSubmit={this.handleSubmit}>
@@ -83,7 +48,12 @@ class SearchBar extends React.Component {
           />
         </form>
 
-        {searchResults()}
+        <SearchResult
+          query={query}
+          songs={songs}
+          artists={artists}
+          albums={albums}
+        />
       </div>
     );
   }
