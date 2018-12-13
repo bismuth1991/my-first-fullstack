@@ -5,7 +5,7 @@ const ArtistItem = (props) => {
 
   return (
     <>
-      <div>{name}</div>
+      <div className="artist list-item">{name}</div>
     </>
   );
 };

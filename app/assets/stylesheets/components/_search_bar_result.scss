@@ -1,0 +1,52 @@
+.search-results {
+  position: relative;
+  top: 6px;
+  border: 1px solid #dbdbdb;
+  // padding-left: 10px;
+}
+
+.search-results > ul > div {
+  opacity: 0.3;
+  padding-left: 15px;
+  padding-top: 10px;
+  font-size: 15px;
+}
+
+.search-results > ul > div > i {
+  padding-right: 5px;
+}
+
+.search-results .list-item {
+  padding: 8px 9px 9px 45px;
+  cursor: pointer;
+}
+
+.search-results > ul {
+  border-bottom: 1px solid #dbdbdb;
+  padding-top: 10px;
+}
+
+.search-results .list-item:hover {
+  background-color: #dbdbdb;
+}
+
+.search-results .song > .title {
+  color: black;
+  font-size: 13px;
+}
+
+.search-results .artist {
+  color: black;
+  font-size: 13px;
+}
+
+.search-results .album {
+  color: black;
+  font-size: 13px;
+}
+
+.search-results .song > .artist  {
+  font-size: 11px;
+  color: black;
+  opacity: 0.5;
+}

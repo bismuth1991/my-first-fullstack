@@ -1,16 +1,14 @@
 import React from 'react';
 
 const SongItem = (props) => {
-  const { title, artist, album } = props;
+  const { title, artist } = props;
 
   return (
     <>
-      <div>
-        {title}
-        {' '}
-        {artist}
-        {' '}
-        {album}
+      <div className="song list-item">
+        <a href="#/" className="title">{title}</a>
+        <br />
+        <a href="#/" className="artist">{artist}</a>
       </div>
     </>
   );

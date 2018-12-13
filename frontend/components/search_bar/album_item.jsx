@@ -5,7 +5,7 @@ const AlbumItem = (props) => {
 
   return (
     <>
-      <div>{name}</div>
+      <div className="album list-item">{name}</div>
     </>
   );
 };
