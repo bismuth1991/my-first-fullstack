@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.closeDropdown = this.closeDropdown.bind(this);
   }
 
   handleSubmit(e) {
@@ -25,10 +26,20 @@ class SearchBar extends React.Component {
   handleChange(e) {
     this.setState({
       query: e.target.value,
+    }, () => {
+      document.addEventListener('click', this.closeDropdown);
     });
 
     const { fetchQueryData } = this.props;
     fetchQueryData(e.target.value);
+  }
+
+  closeDropdown() {
+    this.setState({
+      query: '',
+    }, () => {
+      document.removeEventListener('click', this.closeDropdown);
+    });
   }
 
   render() {
