@@ -37,6 +37,39 @@ class SearchBar extends React.Component {
     const { query } = this.state;
     const { songs, artists, albums } = this.props;
 
+    const searchResults = () => (!query ? null
+      : (
+          <>
+            <ul>
+              <li>
+                <i className="fas fa-music" />
+            SONGS
+              </li>
+
+              {songs.map(song => <li key={song.id}><SongItem title={song.title} artist={song.artist} album={song.album} /></li>)}
+            </ul>
+
+            <ul>
+              <li>
+                <i className="fas fa-user-circle" />
+            ARTISTS
+              </li>
+
+              {artists.map(artist => <li key={artist.id}><ArtistItem name={artist.name} /></li>)}
+            </ul>
+
+            <ul>
+              <li>
+                <i className="fas fa-compact-disc" />
+            ALBUMS
+              </li>
+
+              {albums.map(album => <li key={album.id}><AlbumItem name={album.name} /></li>)}
+            </ul>
+        </>
+      )
+    );
+
     return (
       <div className="search-bar">
         <form className="input-wrapper" onSubmit={this.handleSubmit}>
@@ -50,32 +83,7 @@ class SearchBar extends React.Component {
           />
         </form>
 
-        <ul>
-          <li>
-            <i className="fas fa-music" />
-            SONGS
-          </li>
-
-          {songs.map(song => <li key={song.id}><SongItem title={song.title} artist={song.artist} album={song.album} /></li>)}
-        </ul>
-
-        <ul>
-          <li>
-            <i className="fas fa-user-circle" />
-            ARTISTS
-          </li>
-
-          {artists.map(artist => <li key={artist.id}><ArtistItem name={artist.name} /></li>)}
-        </ul>
-
-        <ul>
-          <li>
-            <i className="fas fa-compact-disc" />
-            ALBUMS
-          </li>
-
-          {albums.map(album => <li key={album.id}><AlbumItem name={album.name} /></li>)}
-        </ul>
+        {searchResults()}
       </div>
     );
   }
