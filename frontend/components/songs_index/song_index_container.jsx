@@ -7,7 +7,7 @@ const mapStateToProps = ({ entities: { songs } }) => ({
 });
 
 const mapDispatchtoProps = dispatch => ({
-  fetchSomeSongs: () => dispatch(fetchSomeSongs()),
+  fetchSomeSongs: offSet => dispatch(fetchSomeSongs(offSet)),
 });
 
 const SongIndexContainer = connect(
