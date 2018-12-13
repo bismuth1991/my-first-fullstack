@@ -1,4 +1,4 @@
-import { RECEIVE_SONGS } from '../actions/song_actions';
+import { RECEIVE_SONGS, RECEIVE_QUERY_SONGS } from '../actions/song_actions';
 
 const songsReducer = (state = {}, action) => {
   switch (action.type) {
@@ -7,6 +7,8 @@ const songsReducer = (state = {}, action) => {
         ...state,
         ...action.songs,
       };
+    case RECEIVE_QUERY_SONGS:
+      return action.songs;
     default:
       return state;
   }

@@ -28,7 +28,7 @@ class SongIndex extends React.Component {
     const { fetchSomeSongs } = this.props;
     const { offSet } = this.state;
 
-    const bottom = ((e.target.scrollTop % e.target.clientHeight) + 50) >= e.target.clientHeight;
+    const bottom = ((e.target.scrollTop % e.target.clientHeight) + 100) >= e.target.clientHeight;
     // debugger;
 
     if (bottom) {
@@ -52,7 +52,6 @@ class SongIndex extends React.Component {
     // debugger;
     return (
       <div className="song-index-container" id="song-index-container" onScroll={this.handleScroll}>
-        <h1>Song Index goes here!</h1>
         <ul className="song-index">
           {songs.map(song => (
             <li key={song.id} className="song-index-item">

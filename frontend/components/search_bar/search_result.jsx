@@ -18,7 +18,11 @@ const SearchResult = ({
             SONGS
           </div>
 
-          {songs.map(song => <li key={song.id}><SongItem title={song.title} artist={song.artist} album={song.album} /></li>)}
+          {songs.map(song => (
+            <li key={song.id}>
+              <SongItem title={song.title} artist={song.artist} album={song.album} />
+            </li>
+          ))}
         </ul>
 
         <ul>

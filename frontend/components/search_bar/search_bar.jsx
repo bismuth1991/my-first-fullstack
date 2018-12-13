@@ -18,6 +18,9 @@ class SearchBar extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    const { songs, receiveQuerySongs } = this.props;
+    receiveQuerySongs(songs);
+
     this.setState({
       query: '',
     });
@@ -59,7 +62,7 @@ class SearchBar extends React.Component {
 
         <SearchResult
           query={query}
-          songs={songs}
+          songs={songs.slice(0, 3)}
           artists={artists}
           albums={albums}
         />
@@ -85,6 +88,7 @@ SearchBar.propTypes = {
   albums: PropTypes.instanceOf(Array),
 
   fetchQueryData: PropTypes.func.isRequired,
+  receiveQuerySongs: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
