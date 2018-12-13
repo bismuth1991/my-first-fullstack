@@ -39,34 +39,34 @@ class SearchBar extends React.Component {
 
     const searchResults = () => (!query ? null
       : (
-          <>
-            <ul>
-              <li>
-                <i className="fas fa-music" />
-            SONGS
-              </li>
+        <div className="search-results">
+          <ul>
+            <li>
+              <i className="fas fa-music" />
+          SONGS
+            </li>
 
-              {songs.map(song => <li key={song.id}><SongItem title={song.title} artist={song.artist} album={song.album} /></li>)}
-            </ul>
+            {songs.map(song => <li key={song.id}><SongItem title={song.title} artist={song.artist} album={song.album} /></li>)}
+          </ul>
 
-            <ul>
-              <li>
-                <i className="fas fa-user-circle" />
-            ARTISTS
-              </li>
+          <ul>
+            <li>
+              <i className="fas fa-user-circle" />
+          ARTISTS
+            </li>
 
-              {artists.map(artist => <li key={artist.id}><ArtistItem name={artist.name} /></li>)}
-            </ul>
+            {artists.map(artist => <li key={artist.id}><ArtistItem name={artist.name} /></li>)}
+          </ul>
 
-            <ul>
-              <li>
-                <i className="fas fa-compact-disc" />
-            ALBUMS
-              </li>
+          <ul>
+            <li>
+              <i className="fas fa-compact-disc" />
+          ALBUMS
+            </li>
 
-              {albums.map(album => <li key={album.id}><AlbumItem name={album.name} /></li>)}
-            </ul>
-        </>
+            {albums.map(album => <li key={album.id}><AlbumItem name={album.name} /></li>)}
+          </ul>
+        </div>
       )
     );
 

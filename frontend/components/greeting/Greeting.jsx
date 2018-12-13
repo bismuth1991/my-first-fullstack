@@ -20,15 +20,18 @@ class Greeting extends React.Component {
     const { currentUser, logout } = this.props;
 
     const personalGreeting = () => (
-      <>
+      <div className="greeting-container">
+        <div className="user-logo dropdown">
+          <button className="dropdown-content" type="button" onClick={logout}>Log Out</button>
+        </div>
+
         <p>
           Hello,
           {' '}
           {currentUser.email}
         </p>
 
-        <button type="button" onClick={logout}>Log Out</button>
-      </>
+      </div>
     );
 
     return currentUser.id !== null ? personalGreeting() : guestGreeting();

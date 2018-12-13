@@ -1,0 +1,37 @@
+.search-bar {
+  height: 40px;
+  width: 50%;
+  border-radius: 5px;
+  border: 1px solid #dbdbdb;
+}
+
+.input-wrapper {
+  display: flex;
+  height: 34px;
+}
+
+.search-bar button {
+  position: relative;
+  top: 3px;
+  display: inline-block;
+  height: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.search-bar button > i {
+  opacity: 0.6;
+  margin-left: 5px;
+  font-size: 22px;
+}
+
+.search-bar > .input-wrapper > input {
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  font-size: 14px;
+  min-width: 200px;
+  width: 90%;
+  height: 90%;
+}
+
