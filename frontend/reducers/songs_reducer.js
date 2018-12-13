@@ -1,8 +1,8 @@
-import { RECEIVE_ALL_SONGS } from '../actions/song_actions';
+import { RECEIVE_SONGS } from '../actions/song_actions';
 
 const songsReducer = (state = {}, action) => {
   switch (action.type) {
-    case RECEIVE_ALL_SONGS:
+    case RECEIVE_SONGS:
       return action.songs;
     default:
       return state;

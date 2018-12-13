@@ -1,0 +1,16 @@
+.song-index-container {
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.song-index {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.song-index-item {
+  display: block;
+  width: 200px;
+}

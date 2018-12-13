@@ -1,13 +1,13 @@
 import * as songApiUitl from '../util/song_utils';
 
-export const RECEIVE_ALL_SONGS = 'RECEIVE_ALL_SONGS';
+export const RECEIVE_SONGS = 'RECEIVE_SONGS';
 
-export const receiveAllSongs = songs => ({
-  type: RECEIVE_ALL_SONGS,
+export const receiveSongs = songs => ({
+  type: RECEIVE_SONGS,
   songs,
 });
 
-export const fetchAllSongs = () => dispatch => (
-  songApiUitl.fetchAllSongs()
-    .then(songs => dispatch(receiveAllSongs(songs)))
+export const fetchSomeSongs = () => dispatch => (
+  songApiUitl.fetchSomeSongs()
+    .then(songs => dispatch(receiveSongs(songs)))
 );

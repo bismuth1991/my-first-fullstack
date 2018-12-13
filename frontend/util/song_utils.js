@@ -1,8 +1,6 @@
-const fetchAllSongs = () => (
+export const fetchSomeSongs = () => (
   $.ajax({
     method: 'GET',
     url: '/api/songs',
   })
 );
-
-export default fetchAllSongs;
