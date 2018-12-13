@@ -3,17 +3,21 @@
   width: 100%;
   height: 100%;
   background-image: linear-gradient(-87deg, #F2F5F6 0%, #DDE5E8 100%);
+}
+
+.form > div {
+  position: relative;
+  width: 360px;
   display: flex;
   flex-direction: column;
-  z-index: -1;
+  justify-content: center;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .form-container {
-  position: absolute;
-  left: 50%;
-  top: 35%;
-  transform: translate(-50%, -50%);
-  width: 320px;
+  width: 350px;
   background-image: linear-gradient(-226deg, #FFFFFF 8%, #EEF3F5 100%);
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.21);
   border-radius: 8px;
@@ -105,11 +109,10 @@
 }
 
 .demo-button {
-  position: absolute;
-  left: 50%;
-  top: 72%;
-  transform: translate(-50%, -50%);
-  width: 320px;
+  position: relative;
+  left: 46.65%;
+  transform: translateX(-50%);
+  width: 345px;
   background-color: #0190f3;
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.21);
   border-radius: 8px;
@@ -117,8 +120,8 @@
   color: #fff;
   font-size: 14px;
   cursor: pointer;
+  margin-top: 20px;
   padding: 15px 0px 15px 0px;
-  width: 310px;
 }
 
 .session-error {

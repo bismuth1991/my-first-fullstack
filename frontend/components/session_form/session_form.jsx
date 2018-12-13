@@ -69,6 +69,7 @@ class SessionForm extends React.Component {
 
     return (
       <div className="form">
+        <div>
         <div className="form-container">
 
           <nav className="form-nav">
@@ -119,6 +120,7 @@ class SessionForm extends React.Component {
         >
           DEMO LOGIN
         </button>
+        </div>
       </div>
     );
   }
