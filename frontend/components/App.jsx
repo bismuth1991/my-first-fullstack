@@ -9,14 +9,10 @@ import SearchBarContaier from './search_bar/search_bar_container';
 const App = () => (
   <>
     <header>
-      <h1>ZingLite</h1>
+      <div className="header-logo" />
+      <SearchBarContaier />
       <GreetingContainer />
     </header>
-
-    <div>
-      <SearchBarContaier />
-    </div>
-
 
     <AuthRoute path="/login" component={LoginFormContainer} />
     <AuthRoute path="/signup" component={SignupFormContainer} />

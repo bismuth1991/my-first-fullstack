@@ -38,16 +38,16 @@ class SearchBar extends React.Component {
     const { songs, artists, albums } = this.props;
 
     return (
-      <>
-        <form onSubmit={this.handleSubmit}>
+      <div className="search-bar">
+        <form className="input-wrapper" onSubmit={this.handleSubmit}>
+          <button type="submit"><i className="fa fa-search" /></button>
+
           <input
             type="text"
             placeholder="Search for songs, artists or albums..."
             value={query}
             onChange={this.handleChange}
           />
-
-          <button type="submit"><i className="fa fa-search" /></button>
         </form>
 
         <ul>
@@ -76,7 +76,7 @@ class SearchBar extends React.Component {
 
           {albums.map(album => <li key={album.id}><AlbumItem name={album.name} /></li>)}
         </ul>
-      </>
+      </div>
     );
   }
 }
