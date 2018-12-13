@@ -70,56 +70,56 @@ class SessionForm extends React.Component {
     return (
       <div className="form">
         <div>
-        <div className="form-container">
+          <div className="form-container">
 
-          <nav className="form-nav">
-            <ul>
-              <li id="form-nav-login">
-                <Link className="form-nav-tab" to="/login">LOG IN</Link>
-                <span className="form-nav-line" />
-              </li>
+            <nav className="form-nav">
+              <ul>
+                <li id="form-nav-login">
+                  <Link className="form-nav-tab" to="/login">LOG IN</Link>
+                  <span className="form-nav-line" />
+                </li>
 
-              <li id="form-nav-signup">
-                <Link className="form-nav-tab" to="/signup">SIGN UP</Link>
-                <span className="form-nav-line" />
-              </li>
-            </ul>
-          </nav>
+                <li id="form-nav-signup">
+                  <Link className="form-nav-tab" to="/signup">SIGN UP</Link>
+                  <span className="form-nav-line" />
+                </li>
+              </ul>
+            </nav>
 
-          <form className="form-session" onSubmit={this.handleSubmit}>
-            <label>
-              <i className="fas fa-at" />
-              <input
-                type="text"
-                placeholder="EMAIL"
-                value={email}
-                onChange={this.handleChange('email')}
-              />
-            </label>
+            <form className="form-session" onSubmit={this.handleSubmit}>
+              <label>
+                <i className="fas fa-at" />
+                <input
+                  type="text"
+                  placeholder="EMAIL"
+                  value={email}
+                  onChange={this.handleChange('email')}
+                />
+              </label>
 
-            <label>
-              <i className="fas fa-unlock-alt" />
-              <input
-                type="password"
-                placeholder="PASSWORD"
-                value={password}
-                onChange={this.handleChange('password')}
-              />
-            </label>
+              <label>
+                <i className="fas fa-unlock-alt" />
+                <input
+                  type="password"
+                  placeholder="PASSWORD"
+                  value={password}
+                  onChange={this.handleChange('password')}
+                />
+              </label>
 
-            {this.renderErrors()}
+              {this.renderErrors()}
 
-            <button type="submit">{formType}</button>
-          </form>
-        </div>
+              <button type="submit">{formType}</button>
+            </form>
+          </div>
 
-        <button
-          className="demo-button"
-          type="submit"
-          onClick={loginDemoUser}
-        >
-          DEMO LOGIN
-        </button>
+          <button
+            className="demo-button"
+            type="submit"
+            onClick={loginDemoUser}
+          >
+            DEMO LOGIN
+          </button>
         </div>
       </div>
     );
