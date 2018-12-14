@@ -3,4 +3,6 @@ class Song < ApplicationRecord
 
   belongs_to :album
   belongs_to :artist
+
+  has_one_attached :url
 end
