@@ -5,7 +5,12 @@ import {
   REMOVE_ALL_SONGS_FROM_LIST,
 } from '../actions/audio_player_actions';
 
-const audioPlayerReducer = (state = {}, action) => {
+const defaultState = {
+  currentlyPlayed: 0,
+  songList: [1, 2, 3, 4, 5],
+};
+
+const audioPlayerReducer = (state = defaultState, action) => {
   switch (action.type) {
     case ADD_SONGS_TO_LIST:
       return {
