@@ -3,7 +3,7 @@ import {
   ADD_SONG_TO_LIST,
   REMOVE_SONG_FROM_LIST,
   REMOVE_ALL_SONGS_FROM_LIST,
-} from '../actions/audio_player';
+} from '../actions/audio_player_actions';
 
 const audioPlayerReducer = (state = {}, action) => {
   switch (action.type) {
