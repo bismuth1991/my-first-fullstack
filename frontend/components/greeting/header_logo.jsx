@@ -1,8 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { closeModal } from '../../actions/modal_actions';
 
 class HeaderLogo extends React.Component {
-  static handleClick() {
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const { closeModal } = this.props;
     window.location.hash = '/';
+    closeModal();
   }
 
   render() {
@@ -10,10 +20,17 @@ class HeaderLogo extends React.Component {
       <div
         className="header-logo"
         role="presentation"
-        onClick={HeaderLogo.handleClick}
+        onClick={this.handleClick}
       />
     );
   }
 }
 
-export default HeaderLogo;
+const mapDispatchToProps = dispatch => ({
+  closeModal: () => dispatch(closeModal()),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(HeaderLogo);
