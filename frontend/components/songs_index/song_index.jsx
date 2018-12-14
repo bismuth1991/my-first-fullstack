@@ -55,7 +55,7 @@ class SongIndex extends React.Component {
         <ul className="song-index">
           {songs.map(song => (
             <li key={song.id} className="song-index-item">
-              <SongIndexItem title={song.title} artist={song.artist} album={song.album} />
+              <SongIndexItem title={song.title} artist={song.artist} albumCover={song.albumCover} />
             </li>
           ))}
         </ul>

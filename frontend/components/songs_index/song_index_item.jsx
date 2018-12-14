@@ -12,11 +12,14 @@ class SongIndexItem extends React.Component {
   }
 
   render() {
-    const { title, artist, album } = this.props;
+    const { title, artist, albumCover } = this.props;
+    const style = {
+      backgroundImage: `url(${albumCover})`,
+    };
 
     return (
       <div className="song-cover">
-        <div className="song-cover-img">
+        <div className="song-cover-img" style={style}>
           <i className="far fa-play-circle play-icon" />
         </div>
       </div>
