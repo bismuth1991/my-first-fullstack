@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +32,17 @@ class SessionForm extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+
+    const { openOtherForm } = this.props;
+    openOtherForm();
+  }
+
   handleChange(inputField) {
     return e => this.setState({
       [inputField]: e.target.value,
@@ -40,10 +52,11 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    const { processForm } = this.props;
+    const { processForm, closeModal } = this.props;
     const user = { ...this.state };
 
-    processForm(user);
+    processForm(user)
+      .then(closeModal());
 
     this.setState({
       email: '',
@@ -75,12 +88,12 @@ class SessionForm extends React.Component {
             <nav className="form-nav">
               <ul>
                 <li id="form-nav-login">
-                  <Link className="form-nav-tab" to="/login">LOG IN</Link>
+                  <a className="form-nav-tab" href="#/" onClick={this.handleClick}>LOG IN</a>
                   <span className="form-nav-line" />
                 </li>
 
                 <li id="form-nav-signup">
-                  <Link className="form-nav-tab" to="/signup">SIGN UP</Link>
+                  <a className="form-nav-tab" href="#/" onClick={this.handleClick}>SIGN UP</a>
                   <span className="form-nav-line" />
                 </li>
               </ul>
