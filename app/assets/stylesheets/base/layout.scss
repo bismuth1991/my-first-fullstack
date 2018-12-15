@@ -5,10 +5,34 @@ header {
   padding-bottom: 20px;
 }
 
-body {
-  width: 70%;
-  margin: 0 auto;
+// body {
+//   width: 70%;
+//   margin: 0 auto;
+// }
+
+.html-body,
+.main-body {
+  display: flex;
+  flex-direction: column;
 }
+
+.main-nav {
+  order: -1;
+}
+
+@media (min-width: 768px) {
+  .main-body {
+    flex-direction: row;
+    flex: 1;
+  }
+  .main-content {
+    flex: 1;
+  }
+  .main-nav, .main-aside {
+    flex: 0 0 12em;
+  }
+}
+
 
 section {
   // z-index: -1;
