@@ -5,6 +5,7 @@ import HeaderLogo from './greeting/header_logo';
 import SongIndexContainer from './songs_index/song_index_container';
 import ModalContainer from './modal/modal';
 import AudioPlayerContainer from './audio_player/audio_player_container';
+import SlideShow from './slide_show/slide_show';
 
 const App = () => (
   <>
@@ -17,7 +18,10 @@ const App = () => (
     </header>
 
     <div className="main-body">
-      <main className="main-content"><SongIndexContainer /></main>
+      <main className="main-content">
+        <SlideShow />
+        <SongIndexContainer />
+      </main>
       <nav className="main-nav" />
       <aside className="main-aside" />
     </div>
