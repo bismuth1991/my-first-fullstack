@@ -10,7 +10,17 @@ class SongIndex extends React.Component {
       offSet: 0,
     };
 
-    this.handleScroll = this.handleScroll.bind(this);
+    window.addEventListener('scroll', () => {
+      const { fetchSomeSongs } = this.props;
+      const { offSet } = this.state;
+
+      if (window.innerHeight + document.documentElement.scrollTop > document.documentElement.offsetHeight - 10) {
+        fetchSomeSongs(offSet);
+        this.setState(state => ({
+          offSet: state.offSet + 10,
+        }));
+      }
+    });
   }
 
   componentDidMount() {
@@ -24,34 +34,10 @@ class SongIndex extends React.Component {
     }));
   }
 
-  handleScroll(e) {
-    const { fetchSomeSongs } = this.props;
-    const { offSet } = this.state;
-
-    const bottom = ((e.target.scrollTop % e.target.clientHeight) + 100) >= e.target.clientHeight;
-    // debugger;
-
-    if (bottom) {
-      fetchSomeSongs(offSet);
-      // const {
-      //   scrollTop, clientHeight, offsetHeight, scrollHeight,
-      // } = document.getElementById('song-index-container');
-      // debugger;
-      // if (scrollTop + 10 >= clientHeight) {
-      // debugger;
-
-
-      this.setState(state => ({
-        offSet: state.offSet + 10,
-      }));
-    }
-  }
-
   render() {
     const { songs } = this.props;
-    // debugger;
     return (
-      <div className="song-index-container" id="song-index-container" onScroll={this.handleScroll}>
+      <div className="song-index-container" id="song-index-container">
         <ul className="song-index">
           {songs.map(song => (
             <li key={song.id} className="song-index-item">
