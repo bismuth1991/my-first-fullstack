@@ -6,16 +6,22 @@ import PropTypes from 'prop-types';
 const Mp3Player = (props) => {
   const { cookies } = props;
 
-  const mockList = [
-    { src: '', title: '', artist: '' },
-  ];
+  // const mockList = [
+  //   { src: '', title: '', artist: '' },
+  // ];
 
   const { songList } = props;
 
   if (typeof songList[0] === 'object') {
-    return <AudioPlayer audioFiles={songList} />;
+    return (
+      <AudioPlayer
+        // rearrange={rearrangedPlayer}
+        sliderClass="my-slider"
+        audioFiles={songList}
+      />
+    );
   }
-  return <AudioPlayer audioFiles={mockList} />;
+  return null;
 };
 
 Mp3Player.propTypes = {

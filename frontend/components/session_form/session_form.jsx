@@ -55,8 +55,7 @@ class SessionForm extends React.Component {
     const { processForm, closeModal } = this.props;
     const user = { ...this.state };
 
-    processForm(user)
-      .then(closeModal());
+    processForm(user);
 
     this.setState({
       email: '',

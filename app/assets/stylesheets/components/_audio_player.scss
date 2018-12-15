@@ -1,0 +1,48 @@
+.audio-player {
+  width: 100% !important;
+  height: 70px;
+  position: fixed;
+  left: 0;
+  top: calc(100% - 69px);
+  filter: invert(100%);
+  // background-color: #1d1924;
+  background-color: #b7b7b7;
+  border-top: 1px solid #6d6a73;
+  padding: 20px;
+  z-index: 1000;
+  user-select: none;
+}
+
+#play-icon {
+  width: 35px !important;
+  height: 35px !important;
+  padding: 0px 10px 0px 30px;
+}
+
+#rewind-icon {
+  width: 25px !important;
+  height: 25px !important;
+  padding-right: 10px;
+}
+
+#forward-icon {
+  width: 25px !important;
+  height: 25px !important;
+  padding-right: 10px;
+}
+
+#loop-icon {
+  width: 25px !important;
+  height: 25px !important;
+  padding-right: 10px;
+}
+
+#volume-icon {
+  width: 25px !important;
+  height: 25px !important;
+  padding-right: 10px;
+}
+
+input[type=range].my-slider {
+  padding-right: 30px;
+}

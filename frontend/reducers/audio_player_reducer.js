@@ -7,7 +7,7 @@ import {
 
 const defaultState = {
   currentlyPlayed: 0,
-  songList: [1, 2, 3, 4, 5],
+  songList: [],
 };
 
 const audioPlayerReducer = (state = defaultState, action) => {
