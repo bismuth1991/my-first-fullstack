@@ -18,8 +18,13 @@ const App = () => (
     </header>
 
     <main className="site-content site-content-full">
-      <SlideShow />
-      <SongIndexContainer />
+      <section className="section">
+        <SlideShow />
+      </section>
+
+      <section className="section">
+        <SongIndexContainer />
+      </section>
     </main>
 
     <footer>

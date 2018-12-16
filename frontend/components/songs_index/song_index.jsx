@@ -40,13 +40,16 @@ class SongIndex extends React.Component {
   render() {
     const { songs } = this.props;
     return (
-      <ul className="song-index">
-        {songs.map(song => (
-          <li key={song.id}>
-            <SongIndexItem title={song.title} artist={song.artist} albumCover={song.albumCover} />
-          </li>
-        ))}
-      </ul>
+      <div className="container">
+        <ul className="song-index">
+          {songs.map(song => (
+            <li key={song.id}>
+              <SongIndexItem title={song.title} artist={song.artist} albumCover={song.albumCover} />
+            </li>
+          ))}
+        </ul>
+
+      </div>
     );
   }
 }

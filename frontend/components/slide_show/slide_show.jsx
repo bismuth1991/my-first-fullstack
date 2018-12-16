@@ -58,7 +58,7 @@ class SlideShow extends React.Component {
 
   render() {
     return (
-      <div className="slidehow-container">
+      <div className="container">
         <div className="slides fade">
           <img
             src="https://blogs.glowscotland.org.uk/fi/inverkeithinghsmusic/files/2018/02/Music-banner-1.jpg"
