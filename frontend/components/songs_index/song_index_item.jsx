@@ -8,8 +8,18 @@ class SongIndexItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  handleClick(type) {
+    const { playSong, addSongToList } = this.props;
+    const { id } = this.props;
 
+    switch (type) {
+      case 'add':
+        addSongToList(id);
+        break;
+      default:
+        addSongToList(id);
+        playSong(id);
+    }
   }
 
   render() {
@@ -17,11 +27,11 @@ class SongIndexItem extends React.Component {
 
     return (
       <div className="song-item-container">
-        <figure className="song-img-container">
+        <figure className="song-img-container" role="presentation" onClick={e => e.stopPropagation()}>
           <img className="song-img" src={albumCover} alt={title} />
 
-          <i className="far fa-play-circle" />
-          <i className="fas fa-plus" title="Add to current Playlist" />
+          <i className="far fa-play-circle" role="presentation" onClick={this.handleClick('play')} />
+          <i className="fas fa-plus" role="presentation" title="Add to current Playlist" onClick={this.handleClick('add')} />
           <i className="fas fa-heart" title="Like" />
         </figure>
 
@@ -33,9 +43,12 @@ class SongIndexItem extends React.Component {
 }
 
 SongIndexItem.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   artist: PropTypes.string.isRequired,
   albumCover: PropTypes.string.isRequired,
+  playSong: PropTypes.func.isRequired,
+  addSongToList: PropTypes.func.isRequired,
 };
 
 export default SongIndexItem;

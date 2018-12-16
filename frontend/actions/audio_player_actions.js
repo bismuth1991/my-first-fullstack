@@ -2,6 +2,12 @@ export const ADD_SONGS_TO_LIST = 'ADD_SONGS_TO_LIST';
 export const ADD_SONG_TO_LIST = 'ADD_SONG_TO_LIST';
 export const REMOVE_SONG_FROM_LIST = 'REMOVE_SONG_FROM_LIST';
 export const REMOVE_ALL_SONGS_FROM_LIST = 'REMOVE_ALL_SONGS_FROM_LIST';
+export const PLAY_SONG = 'PLAY_SONG';
+
+export const playSong = songId => ({
+  type: PLAY_SONG,
+  songId,
+});
 
 export const addSongsToList = songIds => ({
   type: ADD_SONGS_TO_LIST,

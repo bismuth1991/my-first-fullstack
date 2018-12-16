@@ -3,6 +3,7 @@ import {
   ADD_SONG_TO_LIST,
   REMOVE_SONG_FROM_LIST,
   REMOVE_ALL_SONGS_FROM_LIST,
+  PLAY_SONG,
 } from '../actions/audio_player_actions';
 
 const defaultState = {
@@ -12,6 +13,11 @@ const defaultState = {
 
 const audioPlayerReducer = (state = defaultState, action) => {
   switch (action.type) {
+    case PLAY_SONG:
+      return {
+        ...state,
+        currentlyPlayed: action.songId,
+      };
     case ADD_SONGS_TO_LIST:
       return {
         ...state,

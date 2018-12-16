@@ -16,7 +16,7 @@ class SongIndex extends React.Component {
 
       const { innerHeight } = window;
       const { scrollTop, offsetHeight } = document.documentElement;
-      // debugger;
+
       if (innerHeight + scrollTop > offsetHeight - 5) {
         fetchSomeSongs(offSet);
         this.setState(state => ({
@@ -38,13 +38,14 @@ class SongIndex extends React.Component {
   }
 
   render() {
-    const { songs } = this.props;
+    const { songs, playSong, addSongToList } = this.props;
+
     return (
       <div className="container">
         <ul className="grid grid-gutter padding-left">
           {songs.map(song => (
             <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={song.id}>
-              <SongIndexItem {...song} />
+              <SongIndexItem {...song} playSong={playSong} addSongToList={addSongToList} />
             </li>
           ))}
         </ul>
@@ -52,19 +53,5 @@ class SongIndex extends React.Component {
     );
   }
 }
-
-SongIndex.defaultProps = {
-  songs: [],
-};
-
-SongIndex.propTypes = {
-  songs: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    artist: PropTypes.string,
-    album: PropTypes.string,
-  })),
-
-  fetchSomeSongs: PropTypes.func.isRequired,
-};
 
 export default SongIndex;
