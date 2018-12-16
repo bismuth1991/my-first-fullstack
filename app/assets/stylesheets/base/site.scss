@@ -1,0 +1,36 @@
+.site {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.site-content {
+  flex: 1 0 auto;
+  padding: 1.5em 1.5em 0;
+  width: 100%;
+}
+
+.site-content::after {
+  content: '\00a0';
+  display: block;
+  margin-top: 1.5em;
+  height: 0px;
+  visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  .site-content {
+    padding-top: 2em;
+  }
+  .site-content::after {
+    margin-top: 2em;
+  }
+}
+
+.site-content-full {
+  padding: 0;
+}
+
+.site-content-full::after {
+  content: none;
+}

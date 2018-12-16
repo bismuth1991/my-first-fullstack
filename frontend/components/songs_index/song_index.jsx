@@ -40,7 +40,6 @@ class SongIndex extends React.Component {
   render() {
     const { songs } = this.props;
     return (
-    // <div className="song-index-container" id="song-index-container">
       <ul className="song-index">
         {songs.map(song => (
           <li key={song.id}>
@@ -48,7 +47,6 @@ class SongIndex extends React.Component {
           </li>
         ))}
       </ul>
-    // </div>
     );
   }
 }

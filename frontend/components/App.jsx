@@ -17,14 +17,10 @@ const App = () => (
       <GreetingContainer />
     </header>
 
-    <div className="main-body">
-      <main className="main-content">
-        <SlideShow />
-        <SongIndexContainer />
-      </main>
-      <nav className="main-nav" />
-      <aside className="main-aside" />
-    </div>
+    <main className="site-content site-content-full">
+      <SlideShow />
+      <SongIndexContainer />
+    </main>
 
     <footer>
       <AudioPlayerContainer />
