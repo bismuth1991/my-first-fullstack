@@ -59,7 +59,7 @@ class SlideShow extends React.Component {
       <div className="slidehow-container">
         <div className="slides fade">
           <img
-            src="https://photo-zmp3.zadn.vn/cover_artist/9/c/e/c/9cecbaa75361c784803d216f99508cf8.jpg"
+            src="https://blogs.glowscotland.org.uk/fi/inverkeithinghsmusic/files/2018/02/Music-banner-1.jpg"
             alt="slide-1"
           />
         </div>
