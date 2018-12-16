@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SongIndexItem extends React.Component {
   constructor(props) {
@@ -30,5 +31,11 @@ class SongIndexItem extends React.Component {
     );
   }
 }
+
+SongIndexItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  artist: PropTypes.string.isRequired,
+  albumCover: PropTypes.string.isRequired,
+};
 
 export default SongIndexItem;
