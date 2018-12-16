@@ -1,0 +1,29 @@
+.section {
+  padding: 0 1.5em;
+}
+
+.section::before,
+.section::after {
+  content: '\00a0';
+  display: block;
+  height: 0px;
+  visibility: hidden;
+}
+.section::before {
+  margin-bottom: 1.5em;
+}
+.section::after {
+  margin-top: 1.5em;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 0 2em;
+  }
+  .section::before {
+    margin-bottom: 2em;
+  }
+  .section::after {
+    margin-top: 2em;
+  }
+}

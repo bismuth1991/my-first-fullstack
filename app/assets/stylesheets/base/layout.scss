@@ -4,26 +4,3 @@ header {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
-.html-body,
-.main-body {
-  display: flex;
-  flex-direction: column;
-}
-
-.main-nav {
-  order: -1;
-}
-
-@media (min-width: 788px) {
-  .main-body {
-    flex-direction: row;
-    flex: 1;
-  }
-  .main-content {
-    flex: 1;
-  }
-  .main-nav, .main-aside {
-    flex: 0 0 10em;
-  }
-}
