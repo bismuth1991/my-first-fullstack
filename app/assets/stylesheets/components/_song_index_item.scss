@@ -1,6 +1,9 @@
 .song-item-container {
   position: relative;
   display: inline-block;
+  max-width: 220px;
+  // margin-inline-start: 1em;
+  // margin-inline-end: 1em;
 }
 
 .song-img-container {

@@ -41,10 +41,10 @@ class SongIndex extends React.Component {
     const { songs } = this.props;
     return (
       <div className="container">
-        <ul className="song-index">
+        <ul className="grid grid-gutter">
           {songs.map(song => (
-            <li key={song.id}>
-              <SongIndexItem title={song.title} artist={song.artist} albumCover={song.albumCover} />
+            <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={song.id}>
+              <SongIndexItem {...song} />
             </li>
           ))}
         </ul>
