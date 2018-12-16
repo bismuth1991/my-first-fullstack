@@ -13,15 +13,26 @@ class SongIndexItem extends React.Component {
 
   render() {
     const { title, artist, albumCover } = this.props;
-    const style = {
-      backgroundImage: `url(${albumCover})`,
-    };
+    // const style = {
+    //   backgroundImage: `url(${albumCover})`,
+    // };
 
+    // return (
+    //   <div className="song-cover">
+    //     <div className="song-cover-img" style={style}>
+    //       <i className="far fa-play-circle play-icon" />
+    //     </div>
+    //   </div>
+    // );
     return (
-      <div className="song-cover">
-        <div className="song-cover-img" style={style}>
+      <div className="song-item-container">
+        <figure className="song-img-container">
+          <img className="song-img" src={albumCover} alt={title} />
           <i className="far fa-play-circle play-icon" />
-        </div>
+        </figure>
+
+        <h3>{title}</h3>
+        <h4>{artist}</h4>
       </div>
     );
   }

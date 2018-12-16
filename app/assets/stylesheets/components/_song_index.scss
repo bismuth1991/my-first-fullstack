@@ -1,74 +1,7 @@
-.song-index-container {
-  // height: 80vh;
-  // overflow-y: auto;
-}
-
 .song-index {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.song-index-item {
-  display: block;
-  width: 210px;
-  box-sizing: content-box;
-  padding: 30px 10px 30px 10px;
-}
 
-.song-cover {
-  width: 210px;
-  height: 210px;
-  overflow: hidden;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.song-cover-img {
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  transition: all 0.5s;
-}
-
-.song-cover:hover .song-cover-img,
-.song-cover:focus .song-cover-img {
-  transform: scale(1.1);
-}
-
-// this adds color overlay
-.song-cover-img:before {
-  content: "";
-  display: none;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(52, 73, 94, 0.75);
-}
-
-.song-cover:hover .song-cover-img:before,
-.song-cover:focus .song-cover-img:before {
-  display: block;
-}
-
-// this adds play button
-.song-cover-img i {
-  font-size: 70px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #999;
-  display: none;
-}
-
-.song-cover:hover i,
-.song-cover:focus i {
-  display: block;
-}
 

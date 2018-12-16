@@ -1,0 +1,39 @@
+.song-item-container {
+  position: relative;
+  display: inline-block;
+}
+
+.song-img-container {
+  position: relative;
+  height: 210px;
+  width: 210px;
+  overflow: hidden;
+}
+
+.song-img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+
+.song-img-container i {
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  font-size: 50px;
+  color: #999;
+  opacity: 0;
+}
+
+.song-img-container:hover .song-img {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  filter: brightness(70%);
+}
+
+.song-img-container:hover i {
+  opacity: 1;
+}

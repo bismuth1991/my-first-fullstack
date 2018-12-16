@@ -1,22 +1,24 @@
 import React from 'react';
 
 class SlideShow extends React.Component {
-  static showSlide(n) {
+  static showSlide(n, context) {
     let currentSlide = n;
 
     const slides = document.getElementsByClassName('slides');
-    const dot = document.getElementsByClassName('dot');
+    // const dot = document.getElementsByClassName('dot');
 
     if (currentSlide > slides.length) currentSlide = 1;
     if (currentSlide < 1) currentSlide = slides.length;
 
     for (let i = 0; i < slides.length; i += 1) {
       slides[i].style.display = 'none';
-      dot[i].classList.remove('active');
+      // dot[i].classList.remove('active');
     }
 
     slides[currentSlide - 1].style.display = 'block';
-    dot[currentSlide - 1].classList.add('active');
+    // dot[currentSlide - 1].classList.add('active');
+
+    window.setTimeout(() => context.setState({ currentSlide: currentSlide + 1 }), 5000);
   }
 
   constructor(props) {
@@ -32,12 +34,12 @@ class SlideShow extends React.Component {
 
   componentDidMount() {
     const { currentSlide } = this.state;
-    SlideShow.showSlide(currentSlide);
+    SlideShow.showSlide(currentSlide, this);
   }
 
   componentDidUpdate() {
     const { currentSlide } = this.state;
-    SlideShow.showSlide(currentSlide);
+    SlideShow.showSlide(currentSlide, this);
   }
 
   changeSlide(n) {
@@ -82,11 +84,11 @@ class SlideShow extends React.Component {
         <a className="next" onClick={this.changeSlide(1)}>&#10095;</a> */}
 
         {/* dots */}
-        <div style={{ textAlign: 'center' }}>
+        {/* <div className="dot-container" style={{ textAlign: 'center' }}>
           <span className="dot" role="presentation" onClick={this.currentSlide(1)} />
           <span className="dot" role="presentation" onClick={this.currentSlide(2)} />
           <span className="dot" role="presentation" onClick={this.currentSlide(3)} />
-        </div>
+        </div> */}
       </div>
     );
   }

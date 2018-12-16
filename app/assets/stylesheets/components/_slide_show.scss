@@ -1,11 +1,14 @@
 .slideshow-container {
   // margin: auto;
-  position: relative;
-  max-height: 300px;
+  position: absolute;
+  height: 300px;
+  width: 100%;
 }
 .slides {
   display: none;
   max-height: 300px;
+  height: 300px;
+  width: 100%;
 }
 
 .slides > img {
@@ -35,12 +38,18 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+// .dot-container {
+//   position: absolute;
+//   left: 50%;
+//   top: 50%;
+//   transform: translate(50%, 50%)
+// }
+
 .dot {
-  bottom: 10px;
   cursor: pointer;
   height: 15px;
   width: 15px;
-  margin: 0 5px 0 5px;
+  margin: 0px 10px 0px 10px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;

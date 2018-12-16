@@ -15,7 +15,7 @@ header {
   order: -1;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 788px) {
   .main-body {
     flex-direction: row;
     flex: 1;
@@ -24,6 +24,6 @@ header {
     flex: 1;
   }
   .main-nav, .main-aside {
-    flex: 0 0 12em;
+    flex: 0 0 10em;
   }
 }
