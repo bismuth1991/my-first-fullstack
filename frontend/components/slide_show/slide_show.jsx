@@ -58,27 +58,56 @@ class SlideShow extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="slides fade">
-          <img
-            src="https://blogs.glowscotland.org.uk/fi/inverkeithinghsmusic/files/2018/02/Music-banner-1.jpg"
-            alt="slide-1"
-          />
-        </div>
+      <div className="container slide-show">
+        <ul className="grid grid-gutter">
+          <li className="grid-cell u-full u-med-full u-large-full u-xlarge-full">
+            <figure className="slides fade">
+              <img
+                src="https://blogs.glowscotland.org.uk/fi/inverkeithinghsmusic/files/2018/02/Music-banner-1.jpg"
+                alt="slide-1"
+              />
+            </figure>
+          </li>
 
-        <div className="slides fade">
-          <img
-            src="https://photo-zmp3.zadn.vn/banner/8/c/5/f/8c5fbab75aca24c87d8131fdddf41f87.jpg"
-            alt="slide-2"
-          />
-        </div>
+          <li className="grid-cell u-full u-med-full u-large-full u-xlarge-full">
+            <figure className="slides fade grid-cell u-full u-med-full u-large-full u-xlarge-full">
+              <img
+                src="https://photo-zmp3.zadn.vn/banner/8/c/5/f/8c5fbab75aca24c87d8131fdddf41f87.jpg"
+                alt="slide-2"
+              />
+            </figure>
+          </li>
 
-        <div className="slides fade">
-          <img
-            src="https://photo-zmp3.zadn.vn/banner/e/9/0/2/e902c0d75f215e7d2fb5c6e326aa1274.jpg"
-            alt="slide-3"
-          />
-        </div>
+          <li className="grid-cell u-full u-med-full u-large-full u-xlarge-full">
+            <figure className="slides fade grid-cell u-full u-med-full u-large-full u-xlarge-full">
+              <img
+                src="https://photo-zmp3.zadn.vn/banner/e/9/0/2/e902c0d75f215e7d2fb5c6e326aa1274.jpg"
+                alt="slide-3"
+              />
+            </figure>
+          </li>
+
+          {/* <figure className="slides fade">
+            <img
+              src="https://blogs.glowscotland.org.uk/fi/inverkeithinghsmusic/files/2018/02/Music-banner-1.jpg"
+              alt="slide-1"
+            />
+          </figure>
+
+          <figure className="slides fade grid-cell u-full u-med-full u-large-full u-xlarge-full">
+            <img
+              src="https://photo-zmp3.zadn.vn/banner/8/c/5/f/8c5fbab75aca24c87d8131fdddf41f87.jpg"
+              alt="slide-2"
+            />
+          </figure>
+
+          <figure className="slides fade grid-cell u-full u-med-full u-large-full u-xlarge-full">
+            <img
+              src="https://photo-zmp3.zadn.vn/banner/e/9/0/2/e902c0d75f215e7d2fb5c6e326aa1274.jpg"
+              alt="slide-3"
+            />
+          </figure> */}
+        </ul>
 
         {/* <a className="prev" onClick={this.changeSlide(-1)}>&#10094;</a>
         <a className="next" onClick={this.changeSlide(1)}>&#10095;</a> */}

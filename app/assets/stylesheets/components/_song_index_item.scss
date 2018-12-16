@@ -1,9 +1,7 @@
 .song-item-container {
   position: relative;
   display: inline-block;
-  max-width: 220px;
-  // margin-inline-start: 1em;
-  // margin-inline-end: 1em;
+  max-width: 210px;
 }
 
 .song-img-container {
@@ -24,11 +22,27 @@
 
 .song-img-container i {
   position: absolute;
-  top: 80px;
-  left: 80px;
-  font-size: 50px;
   color: #999;
   opacity: 0;
+}
+.song-img-container i:hover {
+  cursor: pointer;
+  filter: brightness(180%);
+}
+.fa-play-circle {
+  bottom: 75px;
+  left: 75px;
+  font-size: 60px;
+}
+.fa-plus {
+  bottom: 5px;
+  right: 5px;
+  font-size: 20px;
+}
+.fa-heart {
+  bottom : 5px;
+  right: 35px;
+  font-size: 20px;
 }
 
 .song-img-container:hover .song-img {
@@ -44,4 +58,8 @@
 .song-item-container a {
   display: block;
   text-align: center;
+}
+
+.padding-left {
+  padding-left: 1em;
 }

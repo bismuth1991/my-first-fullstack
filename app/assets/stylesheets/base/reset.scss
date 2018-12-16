@@ -5,8 +5,8 @@
 }
 
 html {
-  height: 100%;
-  font: 400 lem/1.4 'Open Sans', sans-serif;
+  // height: 100%;
+  font: 15px "Open Sans", sans-serif;
   text-rendering: optimizeLegibility;
 }
 
@@ -20,19 +20,17 @@ li {
 }
 
 figure {
-  margin: 0;
+  margin: 0 0 0.75em 0;
 }
 
 html, body, ul, li, a, input, label, button {
-  // margin: 0px auto;
-  // padding: 0px;
+  margin: 0px auto;
+  padding: 0px;
   text-decoration: none;
   list-style-type: none;
   border: none;
   outline: none;
 }
-
-
 
 button,
 input[type="submit"] {

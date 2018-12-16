@@ -1,18 +1,12 @@
-.slideshow-container {
-  // margin: auto;
-  position: absolute;
-  height: 300px;
-  width: 100%;
-}
 .slides {
   display: none;
   max-height: 300px;
-  height: 300px;
-  width: 100%;
+  // width: 100%;
 }
 
 .slides > img {
-  width: 100%;
+  display: block;
+  max-width: 100%;
   height: auto;
 }
 
@@ -75,4 +69,10 @@
 @keyframes fade {
   from {opacity: 0.4}
   to {opacity: 1}
+}
+
+@media (max-width: 768px) {
+  .slide-show {
+    display: none;
+  }
 }

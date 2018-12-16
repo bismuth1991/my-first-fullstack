@@ -16,8 +16,8 @@ class SongIndex extends React.Component {
 
       const { innerHeight } = window;
       const { scrollTop, offsetHeight } = document.documentElement;
-
-      if (innerHeight + scrollTop > offsetHeight - 0) {
+      // debugger;
+      if (innerHeight + scrollTop > offsetHeight - 5) {
         fetchSomeSongs(offSet);
         this.setState(state => ({
           offSet: state.offSet + 10,
@@ -41,7 +41,7 @@ class SongIndex extends React.Component {
     const { songs } = this.props;
     return (
       <div className="container">
-        <ul className="grid grid-gutter">
+        <ul className="grid grid-gutter padding-left">
           {songs.map(song => (
             <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={song.id}>
               <SongIndexItem {...song} />
