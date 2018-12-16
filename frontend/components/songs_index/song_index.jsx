@@ -14,7 +14,10 @@ class SongIndex extends React.Component {
       const { fetchSomeSongs } = this.props;
       const { offSet } = this.state;
 
-      if (window.innerHeight + document.documentElement.scrollTop > document.documentElement.offsetHeight - 5) {
+      const { innerHeight } = window;
+      const { scrollTop, offsetHeight } = document.documentElement;
+
+      if (innerHeight + scrollTop > offsetHeight - 5) {
         fetchSomeSongs(offSet);
         this.setState(state => ({
           offSet: state.offSet + 10,

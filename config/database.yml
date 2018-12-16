@@ -87,3 +87,4 @@ production:
   database: zing-lite_production
   username: zing-lite
   password: <%= ENV['ZING-LITE_DATABASE_PASSWORD'] %>
+  
