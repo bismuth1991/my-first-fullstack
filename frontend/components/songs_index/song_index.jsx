@@ -48,7 +48,6 @@ class SongIndex extends React.Component {
             </li>
           ))}
         </ul>
-
       </div>
     );
   }
