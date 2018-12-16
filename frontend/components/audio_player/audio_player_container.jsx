@@ -10,7 +10,7 @@ import {
 
 const mapStateToProps = (state) => {
   const { entities: { songs } } = state;
-  let { audio: { currentlyPlayed, songList } } = state;
+  let { session: { audioPlayer: { currentlyPlayed, songList } } } = state;
 
   if (Object.values(songs).length === 0) {
     songList = [];

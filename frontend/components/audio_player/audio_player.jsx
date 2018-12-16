@@ -6,10 +6,6 @@ import PropTypes from 'prop-types';
 const Mp3Player = (props) => {
   const { cookies } = props;
 
-  // const mockList = [
-  //   { src: '', title: '', artist: '' },
-  // ];
-
   const { songList } = props;
 
   if (typeof songList[0] === 'object') {

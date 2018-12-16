@@ -15,8 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
     const preloadedState = {
       session: {
-        id: window.currentUser.id,
-        email: window.currentUser.email,
+        currentUser: {
+          id: window.currentUser.id,
+          email: window.currentUser.email,
+        },
       },
     };
     store = configureStore(preloadedState);
