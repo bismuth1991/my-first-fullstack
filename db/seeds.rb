@@ -152,3 +152,4 @@ s33.url.attach(io: File.open("app/assets/Songs/RoiXaDeTruongThanh.mp3"), filenam
 
 
 User.create!(email: "demo@user.com", password: "password")
+
