@@ -17,10 +17,10 @@ class SongIndex extends React.Component {
       const { innerHeight } = window;
       const { scrollTop, offsetHeight } = document.documentElement;
 
-      if (innerHeight + scrollTop > offsetHeight - 5) {
+      if (innerHeight + scrollTop > offsetHeight - 1) {
         fetchSomeSongs(offSet);
         this.setState(state => ({
-          offSet: state.offSet + 10,
+          offSet: state.offSet + 20,
         }));
       }
     });
@@ -43,7 +43,7 @@ class SongIndex extends React.Component {
     fetchSomeSongs(offSet);
 
     this.setState(state => ({
-      offSet: state.offSet + 10,
+      offSet: state.offSet + 20,
     }));
   }
 
