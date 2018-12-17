@@ -14,13 +14,12 @@ const defaultState = {
 const audioPlayerReducer = (state = defaultState, action) => {
   switch (action.type) {
     case PLAY_SONG:
-      // debugger;
       return {
         ...state,
         songList: [
           ...state.songList.slice(0, action.playingSongIdx),
           action.songId,
-          ...state.songList.slice(action.playingSongIdx),
+          ...state.songList.slice(action.playingSongIdx + 1),
           ...state.songList.slice(action.playingSongIdx, action.playingSongIdx + 1),
         ],
       };
