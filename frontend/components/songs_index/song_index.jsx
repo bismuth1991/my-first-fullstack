@@ -28,8 +28,12 @@ class SongIndex extends React.Component {
 
   componentWillMount() {
     const { cookies, receiveSongs, addSongsToList } = this.props;
-    receiveSongs(cookies.get('audioPlayer').songs);
-    addSongsToList(cookies.get('audioPlayer').audioPlayer);
+
+    const audioPlayerCookies = cookies.get('audioPlayer');
+    if (audioPlayerCookies) {
+      receiveSongs(cookies.get('audioPlayer').songs);
+      addSongsToList(cookies.get('audioPlayer').audioPlayer);
+    }
   }
 
   componentDidMount() {
