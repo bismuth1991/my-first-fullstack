@@ -10,10 +10,19 @@ import {
 
 const mapStateToProps = ({ entities: { songs }, session: { audioPlayer } }) => {
   let songList = audioPlayer;
+  let audioPlayerCookies = [];
+  const songsCookies = {};
 
   if (Object.values(songs).length === 0) {
     songList = [];
   } else {
+    // set cookies to persist playlist on refresh
+    audioPlayerCookies = songList;
+    songList.forEach((songId) => {
+      songsCookies[songId] = songs[songId];
+    });
+
+    // transform state to data audioPlayer can intepret
     songList = songList.map((songId) => {
       const song = songs[songId];
       return {
@@ -26,6 +35,8 @@ const mapStateToProps = ({ entities: { songs }, session: { audioPlayer } }) => {
 
   return {
     songList,
+    audioPlayerCookies,
+    songsCookies: { ...songsCookies },
   };
 };
 

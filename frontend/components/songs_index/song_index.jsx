@@ -1,4 +1,5 @@
 import React from 'react';
+// import { Cookies } from 'react-cookie';
 import SongIndexItem from './song_index_item';
 
 class SongIndex extends React.Component {
@@ -23,6 +24,13 @@ class SongIndex extends React.Component {
         }));
       }
     });
+  }
+
+  componentWillMount() {
+    debugger;
+    const { cookies, receiveSongs, addSongsToList } = this.props;
+    receiveSongs(cookies.get('audioPlayer').songs);
+    addSongsToList(cookies.get('audioPlayer').audioPlayer);
   }
 
   componentDidMount() {
