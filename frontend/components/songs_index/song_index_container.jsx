@@ -4,12 +4,10 @@ import SongIndex from './song_index';
 import { playSong, addSongToList } from '../../actions/audio_player_actions';
 
 const mapStateToProps = ({ entities: { songs }, session: { audioPlayer } }) => {
-  let playingSongs;
+  let playingSongs = audioPlayer;
 
-  if (audioPlayer.songList.length === 0) {
-    playingSongs = [];
-  } else {
-    playingSongs = audioPlayer.songList.map(songId => songs[songId].title);
+  if (playingSongs.length !== 0) {
+    playingSongs = playingSongs.map(songId => songs[songId].title);
   }
 
   return {

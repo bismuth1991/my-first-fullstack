@@ -8,22 +8,12 @@ import {
   removeAllSongsFromList,
 } from '../../actions/audio_player_actions';
 
-const mapStateToProps = (state) => {
-  const { entities: { songs } } = state;
-  let { session: { audioPlayer: { currentlyPlayed, songList } } } = state;
+const mapStateToProps = ({ entities: { songs }, session: { audioPlayer } }) => {
+  let songList = audioPlayer;
 
   if (Object.values(songs).length === 0) {
     songList = [];
   } else {
-    currentlyPlayed = songs[currentlyPlayed];
-
-    // songList = songList.map(songId => songs[songId])
-    //   .map(song => Object.assign({}, {
-    //     src: song.url,
-    //     title: song.title,
-    //     artist: song.artist,
-    //   }));
-
     songList = songList.map((songId) => {
       const song = songs[songId];
       return {
@@ -35,7 +25,6 @@ const mapStateToProps = (state) => {
   }
 
   return {
-    currentlyPlayed,
     songList,
   };
 };
