@@ -88,8 +88,7 @@ production:
   database: dc0r89qbg2tjml
   username: dhfgzppkywvtiw
   port: 5432
-  password: e5a7d16ea8ad678964f8541466bfe881b1efded8834f9d60d2b67c4a92d7d53c
-  url: postgres://dhfgzppkywvtiw:e5a7d16ea8ad678964f8541466bfe881b1efded8834f9d60d2b67c4a92d7d53c@ec2-23-23-235-86.compute-1.amazonaws.com:5432/dc0r89qbg2tjml
+  url: <%= ENV['DATABASE_URL'] %> 
  
 
   
