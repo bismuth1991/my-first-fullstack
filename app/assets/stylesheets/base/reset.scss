@@ -32,6 +32,10 @@ html, body, ul, li, a, input, label, button {
   outline: none;
 }
 
+body {
+  background-color: #f3f3f3;
+}
+
 button,
 input[type="submit"] {
   cursor: pointer;

@@ -6,7 +6,7 @@ import { playSong, addSongToList, addSongsToList } from '../../actions/audio_pla
 
 const mapStateToProps = ({ entities: { songs }, session: { audioPlayer } }) => {
   let playingSongs = audioPlayer;
-  debugger;
+
   if (playingSongs.length !== 0) {
     playingSongs = playingSongs.map(songId => songs[songId].title);
   }

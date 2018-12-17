@@ -59,29 +59,29 @@ class SlideShow extends React.Component {
   render() {
     return (
       <div className="container slide-show">
-        <ul className="grid grid-gutter">
+        <ul className="grid">
           <li className="grid-cell u-full u-med-full u-large-full u-xlarge-full">
             <figure className="slides fade">
               <img
-                src="https://blogs.glowscotland.org.uk/fi/inverkeithinghsmusic/files/2018/02/Music-banner-1.jpg"
+                src="https://www.dropbox.com/s/7zqohncho1295uc/3.jpg?dl=1"
                 alt="slide-1"
               />
             </figure>
           </li>
 
           <li className="grid-cell u-full u-med-full u-large-full u-xlarge-full">
-            <figure className="slides fade grid-cell u-full u-med-full u-large-full u-xlarge-full">
+            <figure className="slides fade">
               <img
-                src="https://photo-zmp3.zadn.vn/banner/8/c/5/f/8c5fbab75aca24c87d8131fdddf41f87.jpg"
+                src="https://www.dropbox.com/s/nq404z957s7d423/4.jpg?dl=1"
                 alt="slide-2"
               />
             </figure>
           </li>
 
           <li className="grid-cell u-full u-med-full u-large-full u-xlarge-full">
-            <figure className="slides fade grid-cell u-full u-med-full u-large-full u-xlarge-full">
+            <figure className="slides fade">
               <img
-                src="https://photo-zmp3.zadn.vn/banner/e/9/0/2/e902c0d75f215e7d2fb5c6e326aa1274.jpg"
+                src="https://www.dropbox.com/s/g4wpcsjaadnpz0k/2.jpg?dl=1"
                 alt="slide-3"
               />
             </figure>

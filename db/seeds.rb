@@ -8,7 +8,10 @@ artists = [
   quang_dung = Artist.new(name: "Quang Dung"),
   khanh_ly = Artist.new(name: "Khanh Ly"),
   hong_nhung = Artist.new(name: "Hong Nhung"),
-  le_quyen = Artist.new(name: "Le Quyen")
+  le_quyen = Artist.new(name: "Le Quyen"),
+  kicm = Artist.new(name: "K-ICM"),
+  nguyen_khoa = Artist.new(name: "Nguyen Khoa"),
+  duy_zuno = Artist.new(name: "Duy Zuno")
 ]
 
 albums = [
@@ -26,7 +29,10 @@ albums = [
   goi_giac_mo_xua = Album.new(name: "Goi Giac Mo Xua"),
   mot_coi_di_ve = Album.new(name: "Mot Coi Di Ve"),
   nhu_canh_vac_bay = Album.new(name: "Nhu Canh Vac Bay"),
-  tinh_khuc_yeu_thuong = Album.new(name: "Tinh Khuc Yeu Thuong")
+  tinh_khuc_yeu_thuong = Album.new(name: "Tinh Khuc Yeu Thuong"),
+  con_trai_cung = Album.new(name: "Con Trai Cung"),
+  chuyen_tinh_toi = Album.new(name: "Chuyen Tinh Toi"),
+  roi_xa_de_truong_thanh = Album.new(name: "Roi Xa De Truong Thanh")
 ]
 
 artists.each do |artist|
@@ -43,6 +49,9 @@ quang_dung.picture.attach(io: File.open("app/assets/images/Artists/QuangDung.jpg
 khanh_ly.picture.attach(io: File.open("app/assets/images/Artists/KhanhLy.jpg"), filename: "KhanhLy.jpg")
 hong_nhung.picture.attach(io: File.open("app/assets/images/Artists/HongNhung.jpg"), filename: "HongNhung.jpg")
 le_quyen.picture.attach(io: File.open("app/assets/images/Artists/LeQuyen.jpg"), filename: "LeQuyen.jpg")
+kicm.picture.attach(io: File.open("app/assets/images/Artists/K-ICM.jpg"), filename: "K-ICM.jpg")
+nguyen_khoa.picture.attach(io: File.open("app/assets/images/Artists/NguyenKhoa.jpg"), filename: "NguyenKhoa.jpg")
+duy_zuno.picture.attach(io: File.open("app/assets/images/Artists/DuyZuno.jpg"), filename: "DuyZuno.jpg")
 
 albums.each do |album|
   album.save!
@@ -63,6 +72,9 @@ goi_giac_mo_xua.cover_image.attach(io: File.open("app/assets/images/Albums/GoiGi
 mot_coi_di_ve.cover_image.attach(io: File.open("app/assets/images/Albums/MotCoiDiVe.jpg"), filename: "MotCoiDiVe.jpg")
 nhu_canh_vac_bay.cover_image.attach(io: File.open("app/assets/images/Albums/NhuCanhVacBay.jpg"), filename: "NhuCanhVacBay.jpg")
 tinh_khuc_yeu_thuong.cover_image.attach(io: File.open("app/assets/images/Albums/TinhKhucYeuThuong.jpg"), filename: "TinhKhucYeuThuong.jpg")
+con_trai_cung.cover_image.attach(io: File.open("app/assets/images/Albums/ConTraiCung.jpg"), filename: "ConTraiCung.jpg")
+chuyen_tinh_toi.cover_image.attach(io: File.open("app/assets/images/Albums/ChuyenTinhToi.jpg"), filename: "ChuyenTinhToi.jpg")
+roi_xa_de_truong_thanh.cover_image.attach(io: File.open("app/assets/images/Albums/RoiXaDeTruongThanh.jpg"), filename: "RoiXaDeTruongThanh.jpg")
 
 songs = [
   s1 = Song.new(title: "Chia Tay Trong Mua", album_id: em_gai_mua.id, artist_id: huong_tram.id),
@@ -94,7 +106,10 @@ songs = [
   s27 = Song.new(title: "Mot Coi Di Ve", album_id: mot_coi_di_ve.id, artist_id: khanh_ly.id),
   s28 = Song.new(title: "Tuoi Da Buon", album_id: nhu_canh_vac_bay.id, artist_id: hong_nhung.id),
   s29 = Song.new(title: "De Gio Cuon Di", album_id: nhu_canh_vac_bay.id, artist_id: hong_nhung.id),
-  s30 = Song.new(title: "Da Khuc", album_id: tinh_khuc_yeu_thuong.id, artist_id: le_quyen.id)
+  s30 = Song.new(title: "Da Khuc", album_id: tinh_khuc_yeu_thuong.id, artist_id: le_quyen.id),
+  s31 = Song.new(title: "Con Trai Cung", album_id: con_trai_cung.id, artist_id: kicm.id),
+  s32 = Song.new(title: "Chuyen Tinh Toi", album_id: con_trai_cung.id, artist_id: kicm.id),
+  s33 = Song.new(title: "Roi Xa De Truong Thanh", album_id: roi_xa_de_truong_thanh.id, artist_id: duy_zuno.id),
 ]
 
 songs.shuffle.each do |song|
@@ -131,6 +146,9 @@ s27.url.attach(io: File.open("app/assets/Songs/MotCoiDiVe.mp3"), filename: "MotC
 s28.url.attach(io: File.open("app/assets/Songs/TuoiDaBuon.mp3"), filename: "TuoiDaBuon.mp3")
 s29.url.attach(io: File.open("app/assets/Songs/DeGioCuonDi.mp3"), filename: "DeGioCuonDi.mp3")
 s30.url.attach(io: File.open("app/assets/Songs/DaKhuc.mp3"), filename: "DaKhuc.mp3")
+s31.url.attach(io: File.open("app/assets/Songs/ConTraiCung.mp3"), filename: "ConTraiCung.mp3")
+s32.url.attach(io: File.open("app/assets/Songs/ChuyenTinhToi.mp3"), filename: "ChuyenTinhToi.mp3")
+s33.url.attach(io: File.open("app/assets/Songs/RoiXaDeTruongThanh.mp3"), filename: "RoiXaDeTruongThanh.mp3")
 
 
 User.create!(email: "demo@user.com", password: "password")

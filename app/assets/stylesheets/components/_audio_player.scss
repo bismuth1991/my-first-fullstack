@@ -1,48 +1,87 @@
-.audio-player {
-  width: 100% !important;
-  height: 70px;
+.audio-player-container {
   position: fixed;
-  left: 0;
-  top: calc(100% - 69px);
-  filter: invert(100%);
-  // background-color: #1d1924;
-  background-color: #b7b7b7;
-  border-top: 1px solid #6d6a73;
-  padding: 20px;
-  z-index: 1000;
-  user-select: none;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+  background-color: #e2e6db;
+  filter: invert(80%);
+  border: solid 1px #92958c;
+  box-shadow: 2px 2px 15px #e2e6db;
+}
+
+.audio-player {
+  position: fixed;
+  bottom: 0.2rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 70px !important;
+  // background-color: #b7b7b7;
+  border-radius: 10px;
+  // filter: invert(100%);
+  padding: 0.2rem;
+  // border: solid 1px;
+  // box-shadow: 2px 2px 15px black;
 }
 
 #play-icon {
+  margin: 0 20px 0 20px;
   width: 35px !important;
   height: 35px !important;
-  padding: 0px 10px 0px 30px;
 }
 
-#rewind-icon {
-  width: 25px !important;
-  height: 25px !important;
-  padding-right: 10px;
+input[type=range].slider {
+  margin-right: 20px !important;
 }
+// .audio-player {
+  // width: 100% !important;
+  // height: 70px;
+  // position: fixed;
+  // left: 50%;
+  // transform: translate(-50%, 0);
+  // bottom: 0;
+  // filter: invert(100%);
+  // background-color: #1d1924;
+//   background-color: #b7b7b7;
+//   border-top: 1px solid #6d6a73;
+//   padding: 20px;
+//   z-index: 1000;
+//   user-select: none;
+//   display: flex;
+//   justify-content: center !important;
+// }
 
-#forward-icon {
-  width: 25px !important;
-  height: 25px !important;
-  padding-right: 10px;
-}
+// #play-icon {
+//   display: inline-block !important;
+//   color: white !important;
+//   width: 25px !important;
+//   height: 25px !important;
+//   padding: 0px 10px 0px 10px;
+// }
 
-#loop-icon {
-  width: 25px !important;
-  height: 25px !important;
-  padding-right: 10px;
-}
+// #rewind-icon {
+//   width: 25px !important;
+//   height: 25px !important;
+//   padding-right: 10px;
+// }
 
-#volume-icon {
-  width: 25px !important;
-  height: 25px !important;
-  padding-right: 10px;
-}
+// #forward-icon {
+//   width: 25px !important;
+//   height: 25px !important;
+//   padding-right: 10px;
+// }
 
-input[type=range].my-slider {
-  padding-right: 30px;
-}
+// #loop-icon {
+//   width: 25px !important;
+//   height: 25px !important;
+//   padding-right: 10px;
+// }
+
+// #volume-icon {
+//   width: 25px !important;
+//   height: 25px !important;
+//   padding-right: 10px;
+// 
+
+// input[type=range].my-slider {
+//   padding-right: 30px;
+// }

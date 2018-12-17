@@ -27,7 +27,6 @@ class SongIndex extends React.Component {
   }
 
   componentWillMount() {
-    debugger;
     const { cookies, receiveSongs, addSongsToList } = this.props;
     receiveSongs(cookies.get('audioPlayer').songs);
     addSongsToList(cookies.get('audioPlayer').audioPlayer);
@@ -50,7 +49,7 @@ class SongIndex extends React.Component {
     } = this.props;
 
     return (
-      <div className="container">
+      <div className="container song-index">
         <ul className="grid grid-gutter padding-left">
           {songs.map(song => (
             <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={song.id}>
