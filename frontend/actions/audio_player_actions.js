@@ -4,9 +4,10 @@ export const REMOVE_SONG_FROM_LIST = 'REMOVE_SONG_FROM_LIST';
 export const REMOVE_ALL_SONGS_FROM_LIST = 'REMOVE_ALL_SONGS_FROM_LIST';
 export const PLAY_SONG = 'PLAY_SONG';
 
-export const playSong = songId => ({
+export const playSong = (songId, playingSongIdx) => ({
   type: PLAY_SONG,
   songId,
+  playingSongIdx,
 });
 
 export const addSongsToList = songIds => ({

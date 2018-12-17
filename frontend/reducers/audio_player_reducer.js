@@ -7,36 +7,42 @@ import {
 } from '../actions/audio_player_actions';
 
 const defaultState = {
-  currentlyPlayed: 0,
+  currentlyPlayed: -1,
   songList: [],
 };
 
 const audioPlayerReducer = (state = defaultState, action) => {
   switch (action.type) {
     case PLAY_SONG:
+      // debugger;
       return {
         ...state,
-        currentlyPlayed: action.songId,
+        songList: [
+          ...state.songList.slice(0, action.playingSongIdx),
+          action.songId,
+          ...state.songList.slice(action.playingSongIdx),
+          ...state.songList.slice(action.playingSongIdx, action.playingSongIdx + 1),
+        ],
       };
     case ADD_SONGS_TO_LIST:
       return {
         ...state,
-        songLists: state.songLists.concat(action.songIds),
+        songList: state.songList.concat(action.songIds),
       };
     case ADD_SONG_TO_LIST:
       return {
         ...state,
-        songLists: state.songLists.concat([action.songId]),
+        songList: state.songList.concat([action.songId]),
       };
     case REMOVE_SONG_FROM_LIST:
       return {
         ...state,
-        songLists: state.songLists.filter(songId => songId !== action.songId),
+        songList: state.songList.filter(songId => songId !== action.songId),
       };
     case REMOVE_ALL_SONGS_FROM_LIST:
       return {
         ...state,
-        songLists: [],
+        songList: [],
       };
     default:
       return state;

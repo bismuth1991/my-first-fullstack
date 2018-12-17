@@ -5,6 +5,7 @@ import Root from './components/Root';
 
 // TEST
 import { login, logout } from './actions/session_actions';
+// import Mp3Player from './components/audio_player/audio_player';
 
 window.configureStore = configureStore;
 
