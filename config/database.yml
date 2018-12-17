@@ -17,10 +17,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
-  port: 5433
-  username: postgres
-  password: password
+  # host: localhost
+  # port: 5433
+  # username: postgres
+  # password: password
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -84,11 +84,6 @@ test:
 #
 production:
   <<: *default
-  host: ec2-23-23-235-86.compute-1.amazonaws.com
-  database: dc0r89qbg2tjml
-  username: dhfgzppkywvtiw
-  port: 5432
-  url: <%= ENV['DATABASE_URL'] %> 
- 
-
-  
+  database: zing-lite_production
+  username: zing-lite
+  password: <%= ENV['ZING-LITE_DATABASE_PASSWORD'] %>

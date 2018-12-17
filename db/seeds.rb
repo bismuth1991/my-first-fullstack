@@ -39,8 +39,8 @@ artists.each do |artist|
   artist.save!
 end
 
-huong_tram.picture.attach(io: File.open("app/assets/images/Artists/HuongTram.jpg"), filename: "HuongTram.jpg")
-dam_vinh_hung.picture.attach(io: File.open("app/assets/images/Artists/DamVinhHung.jpg"), filename: "DamVinhHung/jpg")
+huong_tram.picture.attach(io: File.open("#{Rails.root}/app/assets/images/Artists/HuongTram.jpg"), filename: "HuongTram.jpg")
+dam_vinh_hung.picture.attach(io: File.open("#{Rails.root}/app/assets/images/Artists/DamVinhHung.jpg"), filename: "DamVinhHung/jpg")
 vu_cat_tuong.picture.attach(io: File.open("app/assets/images/Artists/VuCatTuong.jpg"), filename: "VuCatTuong.jpg")
 truc_nhan.picture.attach(io: File.open("app/assets/images/Artists/TrucNhan.jpg"), filename: "TrucNhan.jpg")
 miu_le.picture.attach(io: File.open("app/assets/images/Artists/MiuLe.jpg"), filename: "MiuLe.jpg")
@@ -109,7 +109,7 @@ songs = [
   s30 = Song.new(title: "Da Khuc", album_id: tinh_khuc_yeu_thuong.id, artist_id: le_quyen.id),
   s31 = Song.new(title: "Con Trai Cung", album_id: con_trai_cung.id, artist_id: kicm.id),
   s32 = Song.new(title: "Chuyen Tinh Toi", album_id: con_trai_cung.id, artist_id: kicm.id),
-  s33 = Song.new(title: "Roi Xa De Truong Thanh", album_id: roi_xa_de_truong_thanh.id, artist_id: duy_zuno.id),
+  s33 = Song.new(title: "Roi Xa De Truong Thanh", album_id: roi_xa_de_truong_thanh.id, artist_id: duy_zuno.id)
 ]
 
 songs.shuffle.each do |song|
@@ -152,4 +152,3 @@ s33.url.attach(io: File.open("app/assets/Songs/RoiXaDeTruongThanh.mp3"), filenam
 
 
 User.create!(email: "demo@user.com", password: "password")
-
