@@ -9,6 +9,7 @@ class Mp3Player extends React.Component {
     super(props);
 
     this.setCookies = this.setCookies.bind(this);
+    this.closeAudioPlayer = this.closeAudioPlayer.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +32,11 @@ class Mp3Player extends React.Component {
     );
   }
 
+  closeAudioPlayer() {
+    const { removeAllSongsFromList } = this.props;
+    removeAllSongsFromList();
+  }
+
   render() {
     // debugger;
     const { songList } = this.props;
@@ -47,6 +53,8 @@ class Mp3Player extends React.Component {
           fontSize="14px"
           playerWidth="450px"
         />
+
+        <i className="fas fa-times" role="presentation" onClick={this.closeAudioPlayer} />
       </div>
     );
   }

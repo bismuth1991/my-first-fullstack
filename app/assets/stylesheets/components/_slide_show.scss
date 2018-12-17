@@ -1,18 +1,21 @@
+.slide-show {
+  position: relative;
+}
+
 .slides {
   display: none;
-  // width: 100%;
-  // max-height: 300px;
 }
 
 .slides > img {
   display: block;
   max-width: 100%;
-  // height: auto;
 }
 
 .prev, .next {
   cursor: pointer;
-  position: relative;
+  position: absolute;
+  bottom: 50%;
+  transform: translate(0, 50%);
   width: auto;
   padding: 16px;
   color: black;
@@ -32,12 +35,12 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-// .dot-container {
-//   position: absolute;
-//   left: 50%;
-//   top: 50%;
-//   transform: translate(50%, 50%)
-// }
+.dot-container {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%, 0)
+}
 
 .dot {
   cursor: pointer;
