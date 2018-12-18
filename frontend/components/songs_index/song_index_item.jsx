@@ -51,7 +51,7 @@ class SongIndexItem extends React.Component {
         <figure className="song-img-container">
           <img className="song-img" src={albumCover} alt={title} />
 
-          <i className="far fa-play-circle" role="presentation" onClick={this.handleClick('play')} />
+          <i className="far fa-play-circle fade" role="presentation" onClick={this.handleClick('play')} />
           <i className="fas fa-plus" role="presentation" title="Add to current Playlist" onClick={this.handleClick('add')} />
           <i className="fas fa-heart" title="Like" />
         </figure>
