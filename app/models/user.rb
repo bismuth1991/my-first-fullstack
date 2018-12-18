@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :password_digest, presence: { message: "Password can't be blank"}
   validates :password, length: { minimum: 6, allow_nil: true }
 
+  has_many :playlists
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)
