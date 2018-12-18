@@ -6,9 +6,9 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def show
-    @playlist = Playlist.find(params[:id]).includes(:songs => [:artist, :album])
-    @songs = @playlist.songs
-    @playlist_songs = @playlist.playlist_songs
+    @playlist = Playlist.where('id = ?', params[:id]).includes(:songs => [:artist, :album])
+    @songs = @playlist.first.songs
+    @playlist_songs = @playlist.first.playlist_songs
 
     render :show
   end

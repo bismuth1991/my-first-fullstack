@@ -5,3 +5,7 @@ export const fetchSomeSongs = (offSet = 0) => (
     data: { offSet },
   })
 );
+
+export const random = () => (
+  1 + 1
+);
