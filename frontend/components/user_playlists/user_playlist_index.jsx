@@ -15,7 +15,8 @@ class UserPlaylistIndex extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <ul className="grid grid-gutter">
+          <h2>Personal Playlists</h2>
+          <ul className="grid grid-gutter padding-left" id="playlist-index">
             {userPlaylists.map(playlist => (
               <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={playlist.id}>
                 <UserPlaylistItem playlistName={playlist.name} />

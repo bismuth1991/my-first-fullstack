@@ -1,0 +1,8 @@
+#playlist-index {
+  overflow: auto;
+  flex-wrap: nowrap !important;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
