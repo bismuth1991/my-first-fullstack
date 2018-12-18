@@ -76,46 +76,48 @@ class SlideShow extends React.Component {
 
   render() {
     return (
-      <div className="container slide-show">
-        <ul className="grid">
-          <li className="grid-cell u-full u-med-full u-large-full u-xlarge-full">
-            <figure className="slides fade">
-              <img
-                src="https://www.dropbox.com/s/7zqohncho1295uc/3.jpg?dl=1"
-                alt="slide-1"
-              />
-            </figure>
-          </li>
+      <section className="section">
+        <div className="container slide-show">
+          <ul className="grid">
+            <li className="grid-cell u-full u-med-full u-large-full u-xlarge-full">
+              <figure className="slides fade">
+                <img
+                  src="https://www.dropbox.com/s/7zqohncho1295uc/3.jpg?dl=1"
+                  alt="slide-1"
+                />
+              </figure>
+            </li>
 
-          <li className="grid-cell u-full u-med-full u-large-full u-xlarge-full">
-            <figure className="slides fade">
-              <img
-                src="https://www.dropbox.com/s/nq404z957s7d423/4.jpg?dl=1"
-                alt="slide-2"
-              />
-            </figure>
-          </li>
+            <li className="grid-cell u-full u-med-full u-large-full u-xlarge-full">
+              <figure className="slides fade">
+                <img
+                  src="https://www.dropbox.com/s/nq404z957s7d423/4.jpg?dl=1"
+                  alt="slide-2"
+                />
+              </figure>
+            </li>
 
-          <li className="grid-cell u-full u-med-full u-large-full u-xlarge-full">
-            <figure className="slides fade">
-              <img
-                src="https://www.dropbox.com/s/g4wpcsjaadnpz0k/2.jpg?dl=1"
-                alt="slide-3"
-              />
-            </figure>
-          </li>
-        </ul>
+            <li className="grid-cell u-full u-med-full u-large-full u-xlarge-full">
+              <figure className="slides fade">
+                <img
+                  src="https://www.dropbox.com/s/g4wpcsjaadnpz0k/2.jpg?dl=1"
+                  alt="slide-3"
+                />
+              </figure>
+            </li>
+          </ul>
 
-        <a className="prev" onClick={this.changeSlide(-1)}>&#10094;</a>
-        <a className="next" onClick={this.changeSlide(1)}>&#10095;</a>
+          <a className="prev" onClick={this.changeSlide(-1)}>&#10094;</a>
+          <a className="next" onClick={this.changeSlide(1)}>&#10095;</a>
 
-        {/* dots */}
-        <div className="dot-container" style={{ textAlign: 'center' }}>
-          <span className="dot" role="presentation" onClick={this.currentSlide(0)} />
-          <span className="dot" role="presentation" onClick={this.currentSlide(1)} />
-          <span className="dot" role="presentation" onClick={this.currentSlide(2)} />
+          {/* dots */}
+          <div className="dot-container" style={{ textAlign: 'center' }}>
+            <span className="dot" role="presentation" onClick={this.currentSlide(0)} />
+            <span className="dot" role="presentation" onClick={this.currentSlide(1)} />
+            <span className="dot" role="presentation" onClick={this.currentSlide(2)} />
+          </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

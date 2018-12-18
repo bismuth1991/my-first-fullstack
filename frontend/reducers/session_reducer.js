@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions';
 import audioPlayerReducer from './audio_player_reducer';
+import userPlaylistsReducer from './user_playlists_reducer';
 
 const nullUser = {
   id: null,
@@ -21,4 +22,5 @@ const sessionReducer = (state = nullUser, action) => {
 export default combineReducers({
   currentUser: sessionReducer,
   audioPlayer: audioPlayerReducer,
+  userPlaylists: userPlaylistsReducer,
 });

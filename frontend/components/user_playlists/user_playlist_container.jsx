@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import { fetchUserPlaylists } from '../../actions/user_playlist_actions';
-import UserPlaylist from './user_playlist';
+import UserPlaylistIndex from './user_playlist_index';
 
-const mapStateToProps = ({ entities: { playlists } }) => ({
-  playlists,
+const mapStateToProps = ({ session: { userPlaylists } }) => ({
+  userPlaylists: Object.values(userPlaylists),
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchUserPlaylists: playlists => dispatch(fetchUserPlaylists(playlists)),
+  fetchUserPlaylists: () => dispatch(fetchUserPlaylists()),
 });
 
 const UserPlaylistContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(UserPlaylist);
+)(UserPlaylistIndex);
 
 
 export default UserPlaylistContainer;

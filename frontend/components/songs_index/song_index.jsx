@@ -53,20 +53,22 @@ class SongIndex extends React.Component {
     } = this.props;
 
     return (
-      <div className="container song-index">
-        <ul className="grid grid-gutter padding-left">
-          {songs.map(song => (
-            <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={song.id}>
-              <SongIndexItem
-                {...song}
-                playSong={playSong}
-                addSongToList={addSongToList}
-                playingSongs={playingSongs}
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
+      <section className="section">
+        <div className="container song-index">
+          <ul className="grid grid-gutter padding-left">
+            {songs.map(song => (
+              <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={song.id}>
+                <SongIndexItem
+                  {...song}
+                  playSong={playSong}
+                  addSongToList={addSongToList}
+                  playingSongs={playingSongs}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     );
   }
 }

@@ -2,12 +2,12 @@ import * as userPlaylistApiUtil from '../util/user_playlist_utils';
 
 export const RECEIVE_USER_PLAYLISTS = 'RECEIVE_USER_PLAYLISTS';
 
-export const receiveUserPlaylists = playlists => ({
+export const receiveUserPlaylists = userPlaylists => ({
   type: RECEIVE_USER_PLAYLISTS,
-  playlists,
+  userPlaylists,
 });
 
 export const fetchUserPlaylists = () => dispatch => (
-  userPlaylistApiUtil.fectchUserPlaylists()
-    .then(playlists => dispatch(receiveUserPlaylists(playlists)))
+  userPlaylistApiUtil.fetchUserPlaylists()
+    .then(userPlaylists => dispatch(receiveUserPlaylists(userPlaylists)))
 );
