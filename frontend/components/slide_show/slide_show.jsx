@@ -2,13 +2,10 @@ import React from 'react';
 
 class SlideShow extends React.Component {
   static showSlide(n) {
-    let currentSlide = n;
+    const currentSlide = n;
 
     const slides = document.getElementsByClassName('slides');
     const dots = document.getElementsByClassName('dot');
-
-    if (currentSlide > slides.length) currentSlide = 1;
-    if (currentSlide < 1) currentSlide = slides.length;
 
     if (slides.length === 0 || dots.length === 0) return;
 
@@ -19,15 +16,15 @@ class SlideShow extends React.Component {
       dots[i].classList.remove('active');
     }
 
-    slides[currentSlide - 1].style.display = 'block';
-    dots[currentSlide - 1].classList.add('active');
+    slides[currentSlide].style.display = 'block';
+    dots[currentSlide].classList.add('active');
   }
 
   constructor(props) {
     super(props);
 
     this.state = {
-      currentSlide: 1,
+      currentSlide: 0,
     };
 
     this.changeSlide = this.changeSlide.bind(this);
@@ -40,7 +37,7 @@ class SlideShow extends React.Component {
     SlideShow.showSlide(currentSlide);
 
     this.slideShowTimeout = window.setTimeout(
-      () => this.setState({ currentSlide: currentSlide + 1 }),
+      () => this.setState({ currentSlide: (currentSlide + 1) % 3 }),
       5000,
     );
   }
@@ -52,22 +49,21 @@ class SlideShow extends React.Component {
 
     window.clearTimeout(this.slideShowTimeout);
 
-    if (currentSlide === 3) {
-      this.slideShowTimeout = window.setTimeout(
-        () => this.setState({ currentSlide: 1 }),
-      );
-    } else {
-      this.slideShowTimeout = window.setTimeout(
-        () => this.setState({ currentSlide: currentSlide + 1 }),
-        5000,
-      );
-    }
+    this.slideShowTimeout = window.setTimeout(
+      () => this.setState({ currentSlide: (currentSlide + 1) % 3 }),
+      5000,
+    );
   }
 
   changeSlide(n) {
+    const { currentSlide } = this.state;
+
+    if (currentSlide + n < 0) {
+      return () => this.setState({ currentSlide: 2 });
+    }
     return () => (
       this.setState(state => ({
-        currentSlide: state.currentSlide + n,
+        currentSlide: (state.currentSlide + n) % 3,
       })));
   }
 
@@ -115,9 +111,9 @@ class SlideShow extends React.Component {
 
         {/* dots */}
         <div className="dot-container" style={{ textAlign: 'center' }}>
+          <span className="dot" role="presentation" onClick={this.currentSlide(0)} />
           <span className="dot" role="presentation" onClick={this.currentSlide(1)} />
           <span className="dot" role="presentation" onClick={this.currentSlide(2)} />
-          <span className="dot" role="presentation" onClick={this.currentSlide(3)} />
         </div>
       </div>
     );

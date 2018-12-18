@@ -38,7 +38,7 @@ class SongIndexItem extends React.Component {
         default:
           if (playIcon) playIcon.click();
           playSong(id, this.findPlayingSongIdx());
-          window.setTimeout(() => document.getElementById('play-icon').click(), 0);
+          window.setTimeout(() => document.getElementById('play-icon').click(), 500);
       }
     };
   }

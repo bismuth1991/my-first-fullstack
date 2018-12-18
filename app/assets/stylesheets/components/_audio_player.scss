@@ -15,23 +15,27 @@
   left: 50%;
   transform: translate(-50%, 0);
   height: 70px !important;
-  // background-color: #b7b7b7;
   border-radius: 10px;
-  // filter: invert(100%);
   padding: 0.2rem;
-  // border: solid 1px;
-  // box-shadow: 2px 2px 15px black;
+}
+
+#play-icon,
+#rewind-icon,
+#forward-icon,
+#volume-icon,
+#loop-icon {
+  cursor: pointer;
 }
 
 #play-icon {
   margin: 0 20px 0 20px;
   width: 35px !important;
   height: 35px !important;
-  cursor: pointer;
 }
 
 input[type=range].slider {
   margin-right: 20px !important;
+  cursor: pointer;
 }
 
 .audio-player-container i {
