@@ -37,24 +37,31 @@ class SlideShow extends React.Component {
   componentDidMount() {
     const { currentSlide } = this.state;
 
+    SlideShow.showSlide(currentSlide);
+
     this.slideShowTimeout = window.setTimeout(
       () => this.setState({ currentSlide: currentSlide + 1 }),
       5000,
     );
-
-    SlideShow.showSlide(currentSlide);
   }
 
   componentDidUpdate() {
     const { currentSlide } = this.state;
 
-    window.clearTimeout(this.slideShowTimeout);
-    this.slideShowTimeout = window.setTimeout(
-      () => this.setState({ currentSlide: currentSlide + 1 }),
-      5000,
-    );
-
     SlideShow.showSlide(currentSlide);
+
+    window.clearTimeout(this.slideShowTimeout);
+
+    if (currentSlide === 3) {
+      this.slideShowTimeout = window.setTimeout(
+        () => this.setState({ currentSlide: 1 }),
+      );
+    } else {
+      this.slideShowTimeout = window.setTimeout(
+        () => this.setState({ currentSlide: currentSlide + 1 }),
+        5000,
+      );
+    }
   }
 
   changeSlide(n) {
