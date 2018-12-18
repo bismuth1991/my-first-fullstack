@@ -1,11 +1,15 @@
 class Api::PlaylistsController < ApplicationController
   def index
-    @playlists = Playlist.where('user_id = ?', current_user.id)
+    @playlists = Playlist.includes(:playlist_songs).where('user_id = ?', current_user.id)
+
     render :index
   end
 
   def show
-    @playlist = Playlist.find(params[:id])
+    @playlist = Playlist.find(params[:id]).includes(:songs => [:artist, :album])
+    @songs = @playlist.songs
+    @playlist_songs = @playlist.playlist_songs
+
     render :show
   end
 
@@ -33,7 +37,7 @@ class Api::PlaylistsController < ApplicationController
     @playlist = Playlist.find(params[:id])
     @playlist.destroy
 
-    render :show
+    render json: {}
   end
 
   private 
