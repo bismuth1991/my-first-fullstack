@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
     resources :songs, only: [:index]  
     resources :searches, only: [:index]
+    resources :playlists, except: [:put]
   end 
   
   root to: 'static_pages#root'

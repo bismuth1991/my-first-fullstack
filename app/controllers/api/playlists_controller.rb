@@ -1,6 +1,6 @@
 class Api::PlaylistsController < ApplicationController
   def index
-    @playlist = Playlist.where('user_id = ?', current_user.id)
+    @playlists = Playlist.where('user_id = ?', current_user.id)
     render :index
   end
 
