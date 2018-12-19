@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import { fetchUserPlaylists } from '../../actions/user_playlist_actions';
 import UserPlaylistIndex from './user_playlist_index';
 
-const mapStateToProps = ({ session: { userPlaylists } }) => ({
-  userPlaylists: Object.values(userPlaylists),
+const mapStateToProps = ({ session: { userPlaylists, currentUser } }) => ({
+  userPlaylists: Object.values(userPlaylists).reverse(),
+  currentUser,
 });
 
 const mapDispatchToProps = dispatch => ({

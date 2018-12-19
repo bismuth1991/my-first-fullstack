@@ -1,14 +1,14 @@
 class Api::PlaylistsController < ApplicationController
   def index
-    @playlists = Playlist.includes(:playlist_songs).where('user_id = ?', current_user.id)
+    @playlists = Playlist.where('user_id = ?', current_user.id)
 
     render :index
   end
 
   def show
-    @playlist = Playlist.where('id = ?', params[:id]).includes(:songs => [:artist, :album])
-    @songs = @playlist.first.songs
-    @playlist_songs = @playlist.first.playlist_songs
+    playlist = Playlist.where('id = ?', params[:id]).includes(:songs => [:artist, :album])
+    @songs = playlist.first.songs
+    @playlist_songs = playlist.first.playlist_songs
 
     render :show
   end
@@ -19,7 +19,7 @@ class Api::PlaylistsController < ApplicationController
     if @playlist.save
       render :show
     else
-      render json: @playlist.errors.full_messagaes, status: 422
+      render json: @playlist.errors.full_messages, status: 422
     end
   end
 
@@ -29,7 +29,7 @@ class Api::PlaylistsController < ApplicationController
     if @playlist.update(playlist_params)
       render :show
     else
-      render json: @playlist.errors.full_messagaes, status: 422
+      render json: @playlist.errors.full_messages, status: 422
     end
   end
 
@@ -43,6 +43,6 @@ class Api::PlaylistsController < ApplicationController
   private 
   
   def playlist_params
-    params.require(:playlist).permit(:name)
+    params.require(:playlist).permit(:name, :user_id, :song_ids)
   end
 end

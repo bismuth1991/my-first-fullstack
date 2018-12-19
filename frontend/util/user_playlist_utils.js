@@ -5,6 +5,14 @@ export const fetchUserPlaylists = () => (
   })
 );
 
-export const random = () => (
-  1 + 1
-);
+export const createPlaylist = (name, userId, songIds) => $.ajax({
+  method: 'POST',
+  url: '/api/playlists/',
+  data: {
+    playlist: {
+      name,
+      user_id: userId,
+      song_ids: songIds,
+    },
+  },
+});

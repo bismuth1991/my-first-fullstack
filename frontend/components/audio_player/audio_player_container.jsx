@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withCookies } from 'react-cookie';
 import Mp3Player from './audio_player';
+import { createPlaylist } from '../../actions/user_playlist_actions';
 import {
   addSongsToList,
   addSongToList,
@@ -8,7 +9,7 @@ import {
   removeAllSongsFromList,
 } from '../../actions/audio_player_actions';
 
-const mapStateToProps = ({ entities: { songs }, session: { audioPlayer } }) => {
+const mapStateToProps = ({ entities: { songs }, session: { audioPlayer, currentUser } }) => {
   let songList = audioPlayer;
   let audioPlayerCookies = [];
   const songsCookies = {};
@@ -37,6 +38,7 @@ const mapStateToProps = ({ entities: { songs }, session: { audioPlayer } }) => {
     songList,
     audioPlayerCookies,
     songsCookies: { ...songsCookies },
+    userId: currentUser.id,
   };
 };
 
@@ -45,6 +47,7 @@ const mapDispatchToProps = dispatch => ({
   addSongToList: songId => dispatch(addSongToList(songId)),
   removeSongFromList: songId => dispatch(removeSongFromList(songId)),
   removeAllSongsFromList: () => dispatch(removeAllSongsFromList()),
+  createPlaylist: (name, userId, songIds) => dispatch(createPlaylist(name, userId, songIds)),
 });
 
 const AudioPlayerContainer = connect(
