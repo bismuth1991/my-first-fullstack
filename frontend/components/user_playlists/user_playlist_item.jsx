@@ -13,7 +13,7 @@ const UserPlaylistItem = (props) => {
       <figure className="song-img-container" style={{ border: '1px solid grey' }}>
         <img
           className="song-img"
-          src={window.playlistImages[randomNum(0, 11)]}
+          src={window.playlistImages[randomNum(0, 12)]}
           alt={playlistName}
         />
 

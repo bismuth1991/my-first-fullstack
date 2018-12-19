@@ -1,9 +1,11 @@
 header {
+  background-color: #fcfcfc;
+}
+.header {
   display: flex;
   justify-content: space-around;
   padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #fcfcfc;
+  padding-bottom: 15px;
 }
 
 

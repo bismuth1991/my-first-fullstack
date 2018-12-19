@@ -13,9 +13,11 @@ const App = () => (
     <ModalContainer />
 
     <header>
-      <HeaderLogo />
-      <SearchBarContaier />
-      <GreetingContainer />
+      <div className="header container">
+        <HeaderLogo />
+        <SearchBarContaier />
+        <GreetingContainer />
+      </div>
     </header>
 
     <main className="site-content site-content-full">
