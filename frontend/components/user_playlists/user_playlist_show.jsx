@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withCookies } from 'react-cookie';
 import SongIndexHC from '../song_index_HC';
 import { playSong, removeSongFromList, addSongsToList } from '../../actions/audio_player_actions';
 import { createPlaylist, editPlaylist } from '../../actions/user_playlist_actions';
+import { receiveSongs } from '../../actions/song_actions';
 
 class UserPlaylistShow extends React.Component {
   componentDidUpdate() {
@@ -10,7 +12,7 @@ class UserPlaylistShow extends React.Component {
   }
 
   render() {
-    return <SongIndexHC {...this.props} type="playlist" />;
+    return <SongIndexHC {...this.props} />;
   }
 }
 
@@ -30,7 +32,6 @@ const mapStateToProps = (state) => {
     playingSongIds.push(song.id);
   }
 
-
   return {
     songs: playingSongs,
     playingSongTitles,
@@ -40,6 +41,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+  receiveSongs: songs => dispatch(receiveSongs(songs)),
   playSong: (songId, playingSongIdx) => dispatch(playSong(songId, playingSongIdx)),
   removeSongFromList: songId => dispatch(removeSongFromList(songId)),
   savePlaylist: (name, userId, songIds) => dispatch(createPlaylist(name, userId, songIds)),
@@ -47,6 +49,6 @@ const mapDispatchToProps = dispatch => ({
   addSongsToAudioPlayer: songIds => dispatch(addSongsToList(songIds)),
 });
 
-export default connect(
+export default withCookies(connect(
   mapStateToProps, mapDispatchToProps,
-)(UserPlaylistShow);
+)(UserPlaylistShow));

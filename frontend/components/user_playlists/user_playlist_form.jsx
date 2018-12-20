@@ -19,17 +19,23 @@ class UserPlaylistForm extends React.Component {
   }
 
   handleClick(type) {
-    const { playlistNameInput } = this.state;
-    const {
-      savePlaylist, editPlaylist, playingSongIds, userId,
-    } = this.props;
+    return (e) => {
+      e.preventDefault();
 
-    switch (type) {
-      case 'edit':
-        return () => editPlaylist(playlistNameInput, userId, playingSongIds);
-      default:
-        return () => savePlaylist(playlistNameInput, userId, playingSongIds);
-    }
+      const { playlistNameInput } = this.state;
+      const {
+        savePlaylist, editPlaylist, playingSongIds, userId,
+      } = this.props;
+
+      switch (type) {
+        case 'edit':
+          editPlaylist(playlistNameInput, userId, playingSongIds);
+          break;
+        default:
+          savePlaylist(playlistNameInput, userId, playingSongIds);
+          break;
+      }
+    };
   }
 
   render() {
@@ -40,14 +46,7 @@ class UserPlaylistForm extends React.Component {
         <form className="input-wrapper">
           <h2>Title</h2>
 
-          <button type="button">
-            <i
-              className="fas fa-save"
-              role="presentation"
-              title="save to new Playlist"
-              onClick={this.handleClick('save')}
-            />
-          </button>
+          <input type="text" onChange={this.handleChange} value={playlistNameInput} placeholder="Change playlist's name here..." />
 
           <button type="button">
             <i
@@ -58,7 +57,14 @@ class UserPlaylistForm extends React.Component {
             />
           </button>
 
-          <input type="text" onChange={this.handleChange} value={playlistNameInput} placeholder="Change playlist's name here..." />
+          <button type="button">
+            <i
+              className="fas fa-save"
+              role="presentation"
+              title="save to new Playlist"
+              onClick={this.handleClick('save')}
+            />
+          </button>
         </form>
       </div>
     );

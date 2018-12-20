@@ -3,58 +3,13 @@ import SongIndexItemHC from './song_index_item_HC';
 import UserPlaylistForm from './user_playlists/user_playlist_form';
 
 class SongIndexHC extends React.Component {
-  constructor() {
-    super();
-
-    const { type } = this.props;
-    if (type === 'index') {
-      this.state = {
-        offSet: 0,
-      };
-
-      window.addEventListener('scroll', () => {
-        const { fetchSomeSongs } = this.props;
-        const { offSet } = this.state;
-
-        const { innerHeight } = window;
-        const { scrollTop, offsetHeight } = document.documentElement;
-
-        if (innerHeight + scrollTop > offsetHeight - 1) {
-          fetchSomeSongs(offSet);
-          this.setState(state => ({
-            offSet: state.offSet + 20,
-          }));
-        }
-      });
-    }
-  }
-
   componentWillMount() {
-    const { type } = this.props;
+    const { cookies, receiveSongs, addSongsToAudioPlayer } = this.props;
 
-    if (type === 'index') {
-      const { cookies, receiveSongs, addSongsToList } = this.props;
-
-      const audioPlayerCookies = cookies.get('audioPlayer');
-      if (audioPlayerCookies) {
-        receiveSongs(cookies.get('audioPlayer').songs);
-        addSongsToList(cookies.get('audioPlayer').audioPlayer);
-      }
-    }
-  }
-
-  componentDidMount() {
-    const { type } = this.props;
-
-    if (type === 'index') {
-      const { fetchSomeSongs } = this.props;
-      const { offSet } = this.state;
-
-      fetchSomeSongs(offSet);
-
-      this.setState(state => ({
-        offSet: state.offSet + 20,
-      }));
+    const audioPlayerCookies = cookies.get('audioPlayer');
+    if (audioPlayerCookies) {
+      receiveSongs(cookies.get('audioPlayer').songs);
+      addSongsToAudioPlayer(cookies.get('audioPlayer').audioPlayer);
     }
   }
 
