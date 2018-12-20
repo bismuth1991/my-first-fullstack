@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Cookies } from 'react-cookie';
 import SongIndexItem from './song_index_item';
 
 class SongIndex extends React.Component {

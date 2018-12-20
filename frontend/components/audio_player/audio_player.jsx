@@ -3,6 +3,7 @@ import AudioPlayer from 'react-modular-audio-player';
 import PropTypes from 'prop-types';
 import { Cookies } from 'react-cookie';
 import rearrangedPlayer from './rearranged_player';
+import PlaylistIndex from './playlist_item';
 
 
 const currentDate = () => new Date().toLocaleString();
@@ -47,34 +48,38 @@ class Mp3Player extends React.Component {
   }
 
   render() {
-    const { songList } = this.props;
+    const { songList, songs, audioPlayerCookies } = this.props;
 
     if (typeof songList[0] !== 'object') {
       return null;
     }
     return (
-      <div className="audio-player-container">
-        <AudioPlayer
-          audioFiles={songList}
-          rearrange={rearrangedPlayer}
-          iconSize="25px"
-          fontSize="14px"
-          playerWidth="450px"
-        />
+      <>
+        {/* <PlaylistIndex songs={songsCookies} /> */}
 
-        <i
-          className="fas fa-save"
-          role="presentation"
-          title="save to personal playlist"
-          onClick={this.saveToPersonalPlaylist}
-        />
-        <i
-          className="fas fa-times"
-          role="presentation"
-          title="close player"
-          onClick={this.closeAudioPlayer}
-        />
-      </div>
+        <div className="audio-player-container">
+          <AudioPlayer
+            audioFiles={songList}
+            rearrange={rearrangedPlayer}
+            iconSize="25px"
+            fontSize="14px"
+            playerWidth="450px"
+          />
+
+          <i
+            className="fas fa-save"
+            role="presentation"
+            title="save to personal playlist"
+            onClick={this.saveToPersonalPlaylist}
+          />
+          <i
+            className="fas fa-times"
+            role="presentation"
+            title="close player"
+            onClick={this.closeAudioPlayer}
+          />
+        </div>
+      </>
     );
   }
 }

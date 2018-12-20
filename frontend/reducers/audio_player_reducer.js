@@ -16,7 +16,7 @@ const audioPlayerReducer = (state = [], action) => {
         ...state.slice(action.playingSongIdx, action.playingSongIdx + 1),
       ];
     case ADD_SONGS_TO_LIST:
-      return state.concat(action.songIds);
+      return action.songIds;
     case ADD_SONG_TO_LIST:
       return state.concat([action.songId]);
     case REMOVE_SONG_FROM_LIST:

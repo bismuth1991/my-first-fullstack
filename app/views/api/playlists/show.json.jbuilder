@@ -2,7 +2,10 @@ if @playlist_songs
   json.playlistSongs do 
     @playlist_songs.each do |playlist_song|
       json.set! playlist_song.id do 
-        json.extract! playlist_song, :id, :playlist_id, :song_id
+        # json.extract! playlist_song, :id, :playlist_id, :song_id
+        json.id playlist_song.id 
+        json.playlistId playlist_song.playlist_id
+        json.songId playlist_song.song_id
       end
     end 
    end
@@ -24,8 +27,7 @@ if @songs
 end
 
 if @playlist 
-  json.set! @playlist.created_at do
-    json.id @playlist.created_at
-    json.name @playlist.name
+  json.set! @playlist.id do
+    json.extract! @playlist, :id, :name
   end
 end

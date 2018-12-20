@@ -7,6 +7,7 @@ import {
   addSongToList,
   removeSongFromList,
   removeAllSongsFromList,
+  playSong,
 } from '../../actions/audio_player_actions';
 
 const mapStateToProps = ({ entities: { songs }, session: { audioPlayer, currentUser } }) => {
@@ -47,6 +48,7 @@ const mapDispatchToProps = dispatch => ({
   addSongToList: songId => dispatch(addSongToList(songId)),
   removeSongFromList: songId => dispatch(removeSongFromList(songId)),
   removeAllSongsFromList: () => dispatch(removeAllSongsFromList()),
+  playSong: (songId, playingSongIdx) => dispatch(playSong(songId, playingSongIdx)),
   createPlaylist: (name, userId, songIds) => dispatch(createPlaylist(name, userId, songIds)),
 });
 

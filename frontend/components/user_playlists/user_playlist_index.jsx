@@ -12,7 +12,9 @@ class UserPlaylistIndex extends React.Component {
   }
 
   render() {
-    const { userPlaylists, currentUser } = this.props;
+    const {
+      userPlaylists, currentUser, fetchUserPlaylist, addSongsToList,
+    } = this.props;
 
     if (currentUser.id === null) return null;
     if (userPlaylists.length === 0) return null;
@@ -24,7 +26,12 @@ class UserPlaylistIndex extends React.Component {
           <ul className="grid grid-gutter padding-left" id="playlist-index">
             {userPlaylists.map(playlist => (
               <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={playlist.id}>
-                <UserPlaylistItem playlistName={playlist.name} />
+                <UserPlaylistItem
+                  playlistName={playlist.name}
+                  playlistId={playlist.id}
+                  fetchUserPlaylist={fetchUserPlaylist}
+                  addSongsToList={addSongsToList}
+                />
               </li>
             ))}
           </ul>
