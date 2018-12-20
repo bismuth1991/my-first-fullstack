@@ -5,13 +5,10 @@ export const fetchUserPlaylists = () => (
   })
 );
 
-export const fetchUserPlaylist = (playlistId) => {
-  debugger;
-  return $.ajax({
-    method: 'GET',
-    url: `/api/playlists/${playlistId}`,
-  });
-};
+export const fetchUserPlaylist = playlistId => $.ajax({
+  method: 'GET',
+  url: `/api/playlists/${playlistId}`,
+});
 
 export const createPlaylist = (name, userId, songIds) => $.ajax({
   method: 'POST',

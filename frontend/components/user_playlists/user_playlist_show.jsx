@@ -24,7 +24,6 @@ const mapStateToProps = (state) => {
   const playingSongs = [];
 
   for (let i = 0; i < Object.values(playlistSongs).length; i += 1) {
-    // debugger;
     const song = songs[Object.values(playlistSongs)[i].songId];
 
     playingSongs.push(song);
@@ -32,14 +31,8 @@ const mapStateToProps = (state) => {
     playingSongIds.push(song.id);
   }
 
-  // if (Object.values(songs).length === 0) {
-  //   playingSongTitles = [];
-  // } else {
-  //   playingSongTitles = audioPlayer.map(songId => (songs[songId].title));
-  // }
 
   return {
-    // songs: Object.values(playlistSongs).map(playlistSong => songs[playlistSong.songId]),
     songs: playingSongs,
     playingSongTitles,
     playingSongIds,

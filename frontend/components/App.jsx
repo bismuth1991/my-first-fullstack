@@ -18,11 +18,14 @@ const App = () => (
     </header>
 
     <main className="site-content site-content-full">
+      <SlideShow />
+      <UserPlaylistContainer />
+
       <Switch>
         <Route path="/playlists/:playlistId" component={UserPlaylistShow} />
         {/* <Route path="/" component={SlideShow} /> */}
-        <Route path="/" component={UserPlaylistContainer} />
-        {/* <Route path="/" component={SongIndexContainer} /> */}
+        {/* <Route path="/" component={UserPlaylistContainer} /> */}
+        <Route path="/" component={SongIndexContainer} />
       </Switch>
     </main>
 

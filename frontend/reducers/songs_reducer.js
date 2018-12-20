@@ -1,5 +1,5 @@
 import { RECEIVE_SONGS, RECEIVE_QUERY_SONGS } from '../actions/song_actions';
-import { RECEIVE_USER_PLAYLIST } from '../actions/user_playlist_actions';
+import { SHOW_USER_PLAYLIST } from '../actions/user_playlist_actions';
 
 const songsReducer = (state = {}, action) => {
   switch (action.type) {
@@ -10,7 +10,7 @@ const songsReducer = (state = {}, action) => {
       };
     case RECEIVE_QUERY_SONGS:
       return action.songs;
-    case RECEIVE_USER_PLAYLIST:
+    case SHOW_USER_PLAYLIST:
       return {
         ...state,
         ...action.playlist.songs,
