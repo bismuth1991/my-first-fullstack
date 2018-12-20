@@ -10,7 +10,7 @@ class UserPlaylistShow extends React.Component {
   }
 
   render() {
-    return <SongIndexHC {...this.props} />;
+    return <SongIndexHC {...this.props} type="playlist" />;
   }
 }
 

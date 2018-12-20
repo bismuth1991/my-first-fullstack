@@ -1,14 +1,10 @@
 import React from 'react';
 import SongIndexItemHC from './song_index_item_HC';
+import UserPlaylistForm from './user_playlists/user_playlist_form';
 
 class SongIndexHC extends React.Component {
-  constructor(props) {
-    super(props);
-
-    // this.state = {
-    //   offSet: 0,
-    //   playlistNameInput: '',
-    // };
+  constructor() {
+    super();
 
     const { type } = this.props;
     if (type === 'index') {
@@ -30,14 +26,6 @@ class SongIndexHC extends React.Component {
           }));
         }
       });
-    }
-
-    if (type === 'playlist') {
-      this.state = {
-        playlistNameInput: '',
-      };
-
-      this.handleChange = this.handleChange.bind(this);
     }
   }
 
@@ -70,66 +58,30 @@ class SongIndexHC extends React.Component {
     }
   }
 
-  handleChange(e) {
-    this.setState({
-      playlistNameInput: e.target.value,
-    });
-  }
-
-  handleClick(type) {
-    const { playlistNameInput } = this.state;
-    const {
-      savePlaylist, editPlaylist, playingSongIds, userId,
-    } = this.props;
-
-    switch (type) {
-      case 'edit':
-        editPlaylist(playlistNameInput, userId, playingSongIds);
-        break;
-      default:
-        savePlaylist(playlistNameInput, userId, playingSongIds);
-    }
-  }
-
-  renderPlaylistForm() {
-    const { type } = this.props;
-    if (type === 'playlist') {
-      return (
-        <div>
-          <i className="fas fa-save" role="presentation" onClick={this.handleClick('save')} />
-          <i className="fas fa-edit" role="presentation" onClick={this.handleClick('edit')} />
-          <input type="text" onChange={this.handleChange} placeholder="Change playlist's name here..." />
-        </div>
-      );
-    }
-    return null;
-  }
-
   render() {
-    const {
-      songs, playSong, addSongToList, playingSongTitles, playingSongIds,
-    } = this.props;
+    const { songs } = this.props;
 
     return (
-      <section className="section">
-        <div className="container song-index">
-          {this.renderPlaylistForm()}
+      <>
+        <section className="section">
+          <UserPlaylistForm {...this.props} />
+        </section>
 
-          <ul className="grid grid-gutter padding-left">
-            {songs.map(song => (
-              <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={song.id}>
-                <SongIndexItemHC
-                  {...song}
-                  playSong={playSong}
-                  addSongToList={addSongToList}
-                  playingSongTitles={playingSongTitles}
-                  playingSongIds={playingSongIds}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+        <section className="section">
+          <div className="container song-index">
+            <ul className="grid grid-gutter padding-left">
+              {songs.map(song => (
+                <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={song.id}>
+                  <SongIndexItemHC
+                    {...song}
+                    {...this.props}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+    </>
     );
   }
 }

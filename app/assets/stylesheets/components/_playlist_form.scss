@@ -1,0 +1,27 @@
+.playlist-form .input-wrapper {
+  position: relative;
+  justify-content: flex-end !important;
+  flex-direction: row;
+}
+.playlist-form h2 {
+  margin: 0;
+  position: absolute;
+  left: 5px;
+  top: 7px;
+}
+.playlist-form input {
+  width: 300px !important;
+  margin: 0;
+  border-radius: 3px;
+  margin-right: 5px;
+  margin-left: 5px;
+  background-color: #f3f3f3 !important;
+}
+
+.playlist-form button {
+  margin: 0 8px 0 8px;
+}
+
+.playlist-form .fa-edit {
+  margin-bottom: 3px;
+}
