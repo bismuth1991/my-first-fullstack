@@ -6,12 +6,11 @@ import { createPlaylist, editPlaylist } from '../../actions/user_playlist_action
 
 class UserPlaylistShow extends React.Component {
   componentDidUpdate() {
-
+    console.log('I am updated');
   }
 
   render() {
     return <SongIndexHC {...this.props} />;
-    // return <h1>Test</h1>;
   }
 }
 

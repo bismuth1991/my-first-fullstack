@@ -9,20 +9,8 @@ class SongIndex extends React.Component {
       offSet: 0,
     };
 
-    window.addEventListener('scroll', () => {
-      const { fetchSomeSongs } = this.props;
-      const { offSet } = this.state;
-
-      const { innerHeight } = window;
-      const { scrollTop, offsetHeight } = document.documentElement;
-
-      if (innerHeight + scrollTop > offsetHeight - 1) {
-        fetchSomeSongs(offSet);
-        this.setState(state => ({
-          offSet: state.offSet + 20,
-        }));
-      }
-    });
+    this.fetchMoreSongs = this.fetchMoreSongs.bind(this);
+    window.addEventListener('scroll', this.fetchMoreSongs);
   }
 
   componentWillMount() {
@@ -44,6 +32,27 @@ class SongIndex extends React.Component {
     this.setState(state => ({
       offSet: state.offSet + 20,
     }));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.fetchMoreSongs);
+  }
+
+  fetchMoreSongs() {
+    const { fetchSomeSongs } = this.props;
+    const { offSet } = this.state;
+
+    if (offSet > 35) return;
+
+    const { innerHeight } = window;
+    const { scrollTop, offsetHeight } = document.documentElement;
+
+    if (innerHeight + scrollTop > offsetHeight - 1) {
+      fetchSomeSongs(offSet);
+      this.setState(state => ({
+        offSet: state.offSet + 20,
+      }));
+    }
   }
 
   render() {

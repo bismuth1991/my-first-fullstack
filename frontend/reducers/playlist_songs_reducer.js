@@ -2,7 +2,6 @@
 import { SHOW_USER_PLAYLIST } from '../actions/user_playlist_actions';
 
 const playlistSongsReducer = (state = {}, action) => {
-  debugger;
   switch (action.type) {
     case SHOW_USER_PLAYLIST:
       // return {

@@ -24,7 +24,7 @@ class Api::PlaylistsController < ApplicationController
     end
   end
 
-  def patch
+  def update
     @playlist = Playlist.find(params[:id])
 
     if @playlist.update(playlist_params)
@@ -38,12 +38,12 @@ class Api::PlaylistsController < ApplicationController
     @playlist = Playlist.find(params[:id])
     @playlist.destroy
 
-    render json: {}
+    render json: @playlist.id 
   end
 
   private 
   
   def playlist_params
-    params.require(:playlist).permit(:name, :user_id, :song_ids)
+    params.require(:playlist).permit(:name, :user_id, song_ids: [])
   end
 end

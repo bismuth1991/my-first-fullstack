@@ -7,11 +7,21 @@ class UserPlaylistItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    const { playlistId, fetchUserPlaylist, history } = this.props;
+  handleClick(type) {
+    const { playlistId, fetchUserPlaylist, deleteUserPlaylist } = this.props;
 
-    fetchUserPlaylist(playlistId);
-    window.location.hash = `/playlists/${playlistId}`;
+    switch (type) {
+      case 'delete':
+        return () => {
+          deleteUserPlaylist(playlistId);
+          window.location.hash = '/';
+        };
+      default:
+        return () => {
+          fetchUserPlaylist(playlistId);
+          window.location.hash = `/playlists/${playlistId}`;
+        };
+    }
   }
 
   render() {
@@ -29,8 +39,8 @@ class UserPlaylistItem extends React.Component {
             alt={playlistName}
           />
 
-          <i className="far fa-play-circle fade" role="presentation" onClick={this.handleClick} />
-          {/* <i className="fas fa-plus" role="presentation" title="Add to current Playlist" onClick={this.handleClick('add')} /> */}
+          <i className="far fa-play-circle fade" role="presentation" onClick={this.handleClick('show')} />
+          <i className="fas fa-times" role="presentation" title="delete playlist" onClick={this.handleClick('delete')} />
           {/* <i className="fas fa-heart" title="Like" /> */}
         </figure>
 
