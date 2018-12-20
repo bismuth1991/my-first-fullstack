@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withCookies } from 'react-cookie';
 import SongIndexHC from '../song_index_HC';
+import UserPlaylistForm from './user_playlist_form';
 import { playSong, removeSongFromList, addSongsToList } from '../../actions/audio_player_actions';
 import { createPlaylist, editPlaylist } from '../../actions/user_playlist_actions';
 import { receiveSongs } from '../../actions/song_actions';
@@ -12,7 +13,12 @@ class UserPlaylistShow extends React.Component {
   }
 
   render() {
-    return <SongIndexHC {...this.props} />;
+    return (
+      <>
+        <UserPlaylistForm {...this.props} />
+        <SongIndexHC {...this.props} />;
+      </>
+    );
   }
 }
 
@@ -32,6 +38,7 @@ const mapStateToProps = (state) => {
     playingSongIds.push(song.id);
   }
 
+
   return {
     songs: playingSongs,
     playingSongTitles,
@@ -45,7 +52,7 @@ const mapDispatchToProps = dispatch => ({
   playSong: (songId, playingSongIdx) => dispatch(playSong(songId, playingSongIdx)),
   removeSongFromList: songId => dispatch(removeSongFromList(songId)),
   savePlaylist: (name, userId, songIds) => dispatch(createPlaylist(name, userId, songIds)),
-  editPlaylist: (name, userId, songIds) => dispatch(editPlaylist(name, userId, songIds)),
+  editPlaylist: (playlistId, name, userId, songIds) => dispatch(editPlaylist(playlistId, name, userId, songIds)),
   addSongsToAudioPlayer: songIds => dispatch(addSongsToList(songIds)),
 });
 

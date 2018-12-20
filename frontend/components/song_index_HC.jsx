@@ -1,6 +1,5 @@
 import React from 'react';
 import SongIndexItemHC from './song_index_item_HC';
-import UserPlaylistForm from './user_playlists/user_playlist_form';
 
 class SongIndexHC extends React.Component {
   componentWillMount() {
@@ -17,26 +16,20 @@ class SongIndexHC extends React.Component {
     const { songs } = this.props;
 
     return (
-      <>
-        <section className="section">
-          <UserPlaylistForm {...this.props} />
-        </section>
-
-        <section className="section">
-          <div className="container song-index">
-            <ul className="grid grid-gutter padding-left">
-              {songs.map(song => (
-                <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={song.id}>
-                  <SongIndexItemHC
-                    {...song}
-                    {...this.props}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-    </>
+      <section className="section">
+        <div className="container song-index">
+          <ul className="grid grid-gutter padding-left">
+            {songs.map(song => (
+              <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={song.id}>
+                <SongIndexItemHC
+                  {...song}
+                  {...this.props}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     );
   }
 }
