@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class SongIndexItemHC extends React.Component {
+class SongItem extends React.Component {
   constructor(props) {
     super(props);
 
@@ -11,6 +11,7 @@ class SongIndexItemHC extends React.Component {
 
   findPlayingSongIdx() {
     const { playingSongTitles } = this.props;
+    // debugger;
 
     const marquee = document.getElementsByClassName('marquee')[0];
     if (marquee) {
@@ -104,4 +105,4 @@ class SongIndexItemHC extends React.Component {
 //   addSongToList: PropTypes.func.isRequired,
 // };
 
-export default SongIndexItemHC;
+export default SongItem;

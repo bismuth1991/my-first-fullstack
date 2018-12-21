@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { closeModal } from '../../actions/modal_actions';
 
 class HeaderLogo extends React.Component {
@@ -11,9 +10,8 @@ class HeaderLogo extends React.Component {
   }
 
   handleClick() {
-    const { closeModal, history } = this.props;
-    // window.location.hash = '/';
-    history.push('/');
+    const { closeModal } = this.props;
+    window.location.hash = '/home';
     closeModal();
   }
 
@@ -32,12 +30,7 @@ const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),
 });
 
-export default withRouter(connect(
+export default connect(
   null,
   mapDispatchToProps,
-)(HeaderLogo));
-
-// export default connect(
-//   null,
-//   mapDispatchToProps,
-// )(HeaderLogo);
+)(HeaderLogo);

@@ -12,16 +12,7 @@ class SearchShow extends React.Component {
 
   render() {
     return (
-      <>
-        {/* <h2
-          className="container"
-          style={{ borderBottom: '1px solid gray', padding: '0 1.5em' }}
-        >
-        Search Results
-        </h2> */}
-
-        <SongIndexHC {...this.props} />
-      </>
+      <SongIndexHC {...this.props} />
     );
   }
 }
