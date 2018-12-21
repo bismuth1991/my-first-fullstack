@@ -1,5 +1,8 @@
 const uniqueSongIds = songIds => songIds.filter((id, index, self) => self.indexOf(id) === index);
 
+
+export const currentDate = () => new Date().toLocaleString();
+
 export const fetchUserPlaylists = () => (
   $.ajax({
     method: 'GET',
@@ -12,7 +15,7 @@ export const fetchUserPlaylist = playlistId => $.ajax({
   url: `/api/playlists/${playlistId}`,
 });
 
-export const createPlaylist = (name, userId, songIds) => $.ajax({
+export const createPlaylist = (userId, songIds, name = currentDate()) => $.ajax({
   method: 'POST',
   url: '/api/playlists/',
   data: {
@@ -24,7 +27,7 @@ export const createPlaylist = (name, userId, songIds) => $.ajax({
   },
 });
 
-export const editPlaylist = (playlistId, name, userId, songIds) => $.ajax({
+export const editPlaylist = (playlistId, userId, songIds, name = currentDate()) => $.ajax({
   method: 'PATCH',
   url: `/api/playlists/${playlistId}`,
   data: {

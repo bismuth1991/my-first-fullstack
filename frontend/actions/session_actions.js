@@ -1,11 +1,14 @@
 import * as SessionApiUtil from '../util/session_api_utils';
 import { closeModal } from './modal_actions';
-import { fetchUserPlaylists } from './user_playlist_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+
+const redirectToHome = () => {
+  window.location.hash = '/home';
+};
 
 const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
@@ -31,7 +34,7 @@ export const login = user => dispatch => (
       currentUser => dispatch(receiveCurrentUser(currentUser)),
       errors => dispatch(receiveSessionErrors(errors.responseJSON)),
     ).then(() => dispatch(closeModal()))
-    .then(() => dispatch(fetchUserPlaylists()))
+    .then(() => redirectToHome())
 );
 
 export const logout = () => dispatch => (
@@ -45,4 +48,5 @@ export const signup = user => dispatch => (
       currentUser => dispatch(receiveCurrentUser(currentUser)),
       errors => dispatch(receiveSessionErrors(errors.responseJSON)),
     ).then(() => dispatch(closeModal()))
+    .then(() => redirectToHome())
 );

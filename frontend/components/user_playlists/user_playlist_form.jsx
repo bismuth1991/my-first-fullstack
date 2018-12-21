@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addSongsToList } from '../../actions/audio_player_actions';
+import { currentDate } from '../../util/user_playlist_utils';
 
 class UserPlaylistForm extends React.Component {
   constructor(props) {
@@ -24,14 +25,16 @@ class UserPlaylistForm extends React.Component {
     return (e) => {
       e.preventDefault();
 
-      const { playlistNameInput } = this.state;
+      let { playlistNameInput } = this.state;
+      if (playlistNameInput === '') playlistNameInput = currentDate();
+
       const {
         savePlaylist, editPlaylist, playingSongIds, userId, playlistId, addSongsToList,
       } = this.props;
 
       switch (type) {
         case 'edit':
-          editPlaylist(playlistId, playlistNameInput, userId, playingSongIds);
+          editPlaylist(playlistId, userId, playingSongIds, playlistNameInput);
 
           this.setState({
             playlistNameInput: '',
@@ -42,10 +45,13 @@ class UserPlaylistForm extends React.Component {
 
           window.setTimeout(() => document.getElementById('play-icon').click(), 500);
           break;
-        default:
-          savePlaylist(playlistNameInput, userId, playingSongIds);
+        case 'save':
+          savePlaylist(userId, playingSongIds, playlistNameInput);
           break;
+        default:
+          return null;
       }
+      return null;
     };
   }
 

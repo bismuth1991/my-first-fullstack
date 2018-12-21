@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class SessionForm extends React.Component {
@@ -52,10 +51,14 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    const { processForm, closeModal } = this.props;
+    const { processForm, closeModal, errors } = this.props;
     const user = { ...this.state };
 
     processForm(user);
+
+    debugger;
+
+    if (errors.length === 0) window.location.hash = '/home';
 
     this.setState({
       email: '',

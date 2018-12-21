@@ -10,7 +10,7 @@ class Greeting extends React.Component {
   }
 
   handleClick(e) {
-    e.preventDefault();
+    // e.preventDefault();
 
     const { openModal } = this.props;
     openModal(e.target.name);

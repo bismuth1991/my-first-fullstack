@@ -24,6 +24,9 @@ class UserPlaylistItem extends React.Component {
           }
           deleteUserPlaylist(this.props.playlistId);
           break;
+        case 'show':
+          fetchUserPlaylist(playlistId);
+          break;
         default:
           return null;
       }
@@ -52,7 +55,7 @@ class UserPlaylistItem extends React.Component {
         </figure>
 
         <Link
-          // onClick={this.handleClick('show')}
+          onClick={this.handleClick('show')}
           to={`/playlists/${playlistId}`}
           style={{ textDecoration: 'underline' }}
         >

@@ -49,7 +49,7 @@ const mapDispatchToProps = dispatch => ({
   removeSongFromList: songId => dispatch(removeSongFromList(songId)),
   removeAllSongsFromList: () => dispatch(removeAllSongsFromList()),
   playSong: (songId, playingSongIdx) => dispatch(playSong(songId, playingSongIdx)),
-  createPlaylist: (name, userId, songIds) => dispatch(createPlaylist(name, userId, songIds)),
+  createPlaylist: (userId, songIds, name) => dispatch(createPlaylist(userId, songIds, name)),
 });
 
 const AudioPlayerContainer = connect(

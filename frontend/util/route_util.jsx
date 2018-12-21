@@ -9,16 +9,16 @@ const Auth = ({
     path={path}
     exact={exact}
     render={props => (
-      !loggedIn ? (
+      loggedIn ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/" />
+        <Redirect to="/home" />
       )
     )}
   />
 );
 
-const mapStateToProps = state => ({ loggedIn: Boolean(state.session.id) });
+const mapStateToProps = state => ({ loggedIn: Boolean(state.session.currentUser.id) });
 
 const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
 

@@ -30,13 +30,13 @@ export const fetchUserPlaylists = () => dispatch => (
     .then(userPlaylists => dispatch(receiveUserPlaylists(userPlaylists)))
 );
 
-export const createPlaylist = (name, userId, songIds) => dispatch => (
-  userPlaylistApiUtil.createPlaylist(name, userId, songIds)
+export const createPlaylist = (userId, songIds, name) => dispatch => (
+  userPlaylistApiUtil.createPlaylist(userId, songIds, name)
     .then(newPlaylist => dispatch(receiveUserPlaylist(newPlaylist)))
 );
 
-export const editPlaylist = (playlistId, name, userId, songIds) => dispatch => (
-  userPlaylistApiUtil.editPlaylist(playlistId, name, userId, songIds)
+export const editPlaylist = (playlistId, userId, songIds, name) => dispatch => (
+  userPlaylistApiUtil.editPlaylist(playlistId, userId, songIds, name)
     .then(newPlaylist => dispatch(receiveUserPlaylist(newPlaylist)))
 );
 

@@ -5,7 +5,6 @@ import { Cookies } from 'react-cookie';
 import rearrangedPlayer from './rearranged_player';
 import PlaylistIndex from './playlist_item';
 
-
 const currentDate = () => new Date().toLocaleString();
 class Mp3Player extends React.Component {
   constructor(props) {
@@ -18,6 +17,19 @@ class Mp3Player extends React.Component {
 
   componentDidMount() {
     window.addEventListener('beforeunload', this.setCookies);
+  }
+
+  componentDidUpdate() {
+    const loopIcon = document.getElementById('loop-icon');
+    if (loopIcon) {
+      const listIcon = document.createElement('i');
+      listIcon.classList.add('fas');
+      listIcon.classList.add('fa-ellipsis-h');
+      listIcon.id = 'loop-icon';
+      loopIcon.parentNode.replaceChild(listIcon, loopIcon);
+
+      listIcon.addEventListener('click', () => { window.location.hash = '/playlists/0'; });
+    }
   }
 
   componentWillUnmount() {
@@ -45,7 +57,7 @@ class Mp3Player extends React.Component {
   saveToPersonalPlaylist() {
     const { createPlaylist, userId, audioPlayerCookies } = this.props;
 
-    createPlaylist(currentDate(), userId, audioPlayerCookies);
+    createPlaylist(userId, audioPlayerCookies, currentDate());
   }
 
   render() {
