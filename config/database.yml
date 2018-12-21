@@ -89,10 +89,3 @@ production:
   # password: <%= ENV['ZING-LITE_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
 
-  # host: ec2-54-243-240-104.compute-1.amazonaws.com
-  # database: d9fpj4i4f7sg72
-  # username: azyusfhaumfbic
-  # port: 5432
-  # password: bd4f6cd0584c21fd043e1c2cc57cbeef7530a0ae5c71ce2621515c8c7cc5530f
-  # password:
-  # url: postgres://azyusfhaumfbic:bd4f6cd0584c21fd043e1c2cc57cbeef7530a0ae5c71ce2621515c8c7cc5530f@ec2-54-243-240-104.compute-1.amazonaws.com:5432/d9fpj4i4f7sg72

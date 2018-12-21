@@ -47,6 +47,10 @@ class UserPlaylistForm extends React.Component {
           break;
         case 'save':
           savePlaylist(userId, playingSongIds, playlistNameInput);
+
+          this.setState({
+            playlistNameInput: '',
+          });
           break;
         default:
           return null;
