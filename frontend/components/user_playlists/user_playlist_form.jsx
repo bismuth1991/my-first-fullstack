@@ -39,6 +39,8 @@ class UserPlaylistForm extends React.Component {
           break;
         case 'play':
           addSongsToList(playingSongIds);
+
+          window.setTimeout(() => document.getElementById('play-icon').click(), 500);
           break;
         default:
           savePlaylist(playlistNameInput, userId, playingSongIds);

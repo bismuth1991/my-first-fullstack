@@ -18,8 +18,9 @@ class SearchBar extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    const { songs, receiveQuerySongs } = this.props;
-    receiveQuerySongs({ ...songs });
+    const { songState, receiveQuerySongs } = this.props;
+
+    receiveQuerySongs(songState);
 
     this.setState({
       query: '',
@@ -47,7 +48,7 @@ class SearchBar extends React.Component {
 
   render() {
     const { query } = this.state;
-    const { songsForShow, artists, albums } = this.props;
+    const { songs, artists, albums } = this.props;
 
     return (
       <div className="search-bar">
@@ -64,7 +65,7 @@ class SearchBar extends React.Component {
 
         <SearchResult
           query={query}
-          songsForShow={songsForShow}
+          songs={songs}
           artists={artists}
           albums={albums}
         />
@@ -74,18 +75,11 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.defaultProps = {
-  songsForShow: {},
   artists: [],
   albums: [],
 };
 
 SearchBar.propTypes = {
-  songsForShow: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    artist: PropTypes.string,
-    album: PropTypes.string,
-  })),
   artists: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
