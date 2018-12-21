@@ -23,6 +23,7 @@ const mapDispatchtoProps = dispatch => ({
   playSong: (songId, playingSongId) => dispatch(playSong(songId, playingSongId)),
   addSongToList: songId => dispatch(addSongToList(songId)),
   addSongsToList: songIds => dispatch(addSongsToList(songIds)),
+  addSongsToAudioPlayer: songIds => dispatch(addSongsToList(songIds)),
 });
 
 const SongIndexContainer = connect(

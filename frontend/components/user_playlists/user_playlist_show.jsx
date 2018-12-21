@@ -4,27 +4,31 @@ import { withCookies } from 'react-cookie';
 import SongIndexHC from '../song_index_HC';
 import UserPlaylistForm from './user_playlist_form';
 import { playSong, removeSongFromList, addSongsToList } from '../../actions/audio_player_actions';
-import { createPlaylist, editPlaylist } from '../../actions/user_playlist_actions';
+import { createPlaylist, editPlaylist, fetchUserPlaylist } from '../../actions/user_playlist_actions';
 import { receiveSongs } from '../../actions/song_actions';
+import { removePlaylistSong } from '../../actions/playlist_songs_actions';
 
 class UserPlaylistShow extends React.Component {
-  componentDidUpdate() {
-    console.log('I am updated');
+  componentDidMount() {
+    const { match: { params: { playlistId } } } = this.props;
+    const { fetchUserPlaylist } = this.props;
+
+    fetchUserPlaylist(playlistId);
   }
 
   render() {
     return (
       <>
         <UserPlaylistForm {...this.props} />
-        <SongIndexHC {...this.props} />;
+        <SongIndexHC {...this.props} />
       </>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, { match: { params: { playlistId } } }) => {
   const { entities: { songs } } = state;
-  const { session: { currentUser, playlistSongs } } = state;
+  const { session: { currentUser, playlistSongs, userPlaylists } } = state;
 
   const playingSongTitles = [];
   const playingSongIds = [];
@@ -38,12 +42,19 @@ const mapStateToProps = (state) => {
     playingSongIds.push(song.id);
   }
 
+  let playlistName;
+  if (Object.values(userPlaylists).length !== 0) {
+    playlistName = userPlaylists[playlistId].name;
+  }
 
   return {
+    playlistId,
+    playlistName,
     songs: playingSongs,
     playingSongTitles,
     playingSongIds,
     userId: currentUser.id,
+    playlistSongs: Object.values(playlistSongs),
   };
 };
 
@@ -54,6 +65,8 @@ const mapDispatchToProps = dispatch => ({
   savePlaylist: (name, userId, songIds) => dispatch(createPlaylist(name, userId, songIds)),
   editPlaylist: (playlistId, name, userId, songIds) => dispatch(editPlaylist(playlistId, name, userId, songIds)),
   addSongsToAudioPlayer: songIds => dispatch(addSongsToList(songIds)),
+  fetchUserPlaylist: playlistId => dispatch(fetchUserPlaylist(playlistId)),
+  removePlaylistSong: playlistSongId => dispatch(removePlaylistSong(playlistSongId)),
 });
 
 export default withCookies(connect(

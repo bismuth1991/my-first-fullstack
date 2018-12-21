@@ -15,6 +15,11 @@ const searchBarReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_QUERY_DATA:
       return action.data;
+      // return {
+      //   songs: Object.values(action.data.songs).map(song => song.id),
+      //   artists: action.artists,
+      //   album: action.albums,
+      // };
     // case RECEIVE_QUERY_SONGS:
     //   return {
     //     ...state,

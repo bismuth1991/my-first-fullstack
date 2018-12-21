@@ -12,10 +12,6 @@ class UserPlaylistForm extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidUpdate() {
-    // debugger;
-  }
-
   handleChange(e) {
     this.setState({
       playlistNameInput: e.target.value,
@@ -26,15 +22,21 @@ class UserPlaylistForm extends React.Component {
     return (e) => {
       e.preventDefault();
 
-      const { playlistNameInput } = this.state;
+      const { playlistNameInput, songIds } = this.state;
       const {
-        savePlaylist, editPlaylist, playingSongIds, userId,
+        savePlaylist, editPlaylist, playingSongIds, userId, playlistId, addSongsToAudioPlayer,
       } = this.props;
-      const { match: { params: { playlistId } } } = this.props;
 
       switch (type) {
         case 'edit':
           editPlaylist(playlistId, playlistNameInput, userId, playingSongIds);
+
+          this.setState({
+            playlistNameInput: '',
+          });
+          break;
+        case 'play':
+          addSongsToAudioPlayer(playingSongIds);
           break;
         default:
           savePlaylist(playlistNameInput, userId, playingSongIds);
@@ -45,12 +47,22 @@ class UserPlaylistForm extends React.Component {
 
   render() {
     const { playlistNameInput } = this.state;
+    const { playlistName } = this.props;
 
     return (
       <section className="section">
         <div className="container search-bar playlist-form">
-          <form className="input-wrapper">
-            <h2>Title</h2>
+          <form className="input-wrapper" onSubmit={this.handleClick('edit')}>
+            <button type="button" className="play">
+              <i
+                className="fas fa-play"
+                role="presentation"
+                title="Play all"
+                onClick={this.handleClick('play')}
+              />
+            </button>
+
+            <h2>{playlistName}</h2>
 
             <input type="text" onChange={this.handleChange} value={playlistNameInput} placeholder="Change playlist's name here..." />
 

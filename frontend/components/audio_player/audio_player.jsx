@@ -21,6 +21,7 @@ class Mp3Player extends React.Component {
   }
 
   componentWillUnmount() {
+    this.setCookies();
     window.removeEventListener('beforeunload', this.setCookies);
   }
 

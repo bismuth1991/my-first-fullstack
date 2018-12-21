@@ -6,11 +6,16 @@
 .playlist-form h2 {
   margin: 0;
   position: absolute;
-  left: 5px;
+  left: 50px;
   top: 7px;
 }
+.playlist-form button.play {
+  position: absolute;
+  left: 5px;
+}
+
 .playlist-form input {
-  width: 300px !important;
+  width: 200px !important;
   margin: 0;
   border-radius: 3px;
   margin-right: 5px;

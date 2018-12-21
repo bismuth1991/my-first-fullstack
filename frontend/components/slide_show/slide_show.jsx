@@ -55,6 +55,10 @@ class SlideShow extends React.Component {
     );
   }
 
+  componentWillUnmount() {
+    window.clearTimeout(this.slideShowTimeout);
+  }
+
   changeSlide(n) {
     const { currentSlide } = this.state;
 

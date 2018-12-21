@@ -12,6 +12,10 @@ class SongIndexHC extends React.Component {
     }
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
     const { songs } = this.props;
 

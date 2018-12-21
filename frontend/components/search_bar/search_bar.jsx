@@ -19,11 +19,13 @@ class SearchBar extends React.Component {
     e.preventDefault();
 
     const { songs, receiveQuerySongs } = this.props;
-    receiveQuerySongs(songs);
+    receiveQuerySongs({ ...songs });
 
     this.setState({
       query: '',
     });
+
+    window.location.hash = '/search-results';
   }
 
   handleChange(e) {

@@ -1,37 +1,16 @@
 import React from 'react';
-import SongIndexItem from './song_index_item';
+import SongIndexHC from '../song_index_HC';
 
 class SongIndex extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      offSet: 0,
+      offSet: 20,
     };
 
     this.fetchMoreSongs = this.fetchMoreSongs.bind(this);
     window.addEventListener('scroll', this.fetchMoreSongs);
-  }
-
-  componentWillMount() {
-    const { cookies, receiveSongs, addSongsToList } = this.props;
-
-    const audioPlayerCookies = cookies.get('audioPlayer');
-    if (audioPlayerCookies) {
-      receiveSongs(cookies.get('audioPlayer').songs);
-      addSongsToList(cookies.get('audioPlayer').audioPlayer);
-    }
-  }
-
-  componentDidMount() {
-    const { fetchSomeSongs } = this.props;
-    const { offSet } = this.state;
-
-    fetchSomeSongs(offSet);
-
-    this.setState(state => ({
-      offSet: state.offSet + 20,
-    }));
   }
 
   componentWillUnmount() {
@@ -56,27 +35,8 @@ class SongIndex extends React.Component {
   }
 
   render() {
-    const {
-      songs, playSong, addSongToList, playingSongs,
-    } = this.props;
-
     return (
-      <section className="section">
-        <div className="container song-index">
-          <ul className="grid grid-gutter padding-left">
-            {songs.map(song => (
-              <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={song.id}>
-                <SongIndexItem
-                  {...song}
-                  playSong={playSong}
-                  addSongToList={addSongToList}
-                  playingSongs={playingSongs}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <SongIndexHC {...this.props} />
     );
   }
 }

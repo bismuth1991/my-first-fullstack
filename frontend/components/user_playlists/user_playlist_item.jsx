@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { addUserPlaylistToPlayer } from '../../actions/user_playlist_actions';
 
 class UserPlaylistItem extends React.Component {
   constructor() {
@@ -8,28 +10,27 @@ class UserPlaylistItem extends React.Component {
   }
 
   handleClick(type) {
-    const { playlistId, fetchUserPlaylist, deleteUserPlaylist } = this.props;
+    return () => {
+      const { playlistId, deleteUserPlaylist, fetchUserPlaylist } = this.props;
 
-    switch (type) {
-      case 'delete':
-        return () => {
+      switch (type) {
+        case 'delete':
           deleteUserPlaylist(playlistId);
           window.location.hash = '/';
-        };
-      default:
-        return () => {
+          break;
+        default:
           fetchUserPlaylist(playlistId);
-          window.location.hash = `/playlists/${playlistId}`;
-        };
-    }
+      }
+    };
   }
 
   render() {
-    const { playlistName } = this.props;
+    const { playlistName, playlistId } = this.props;
     const randomNum = (min, max) => {
       const random = Math.random() * (max - min) + min;
       return Math.floor(random);
     };
+
     return (
       <div className="song-item-container">
         <figure className="song-img-container" style={{ border: '1px solid grey' }}>
@@ -39,12 +40,17 @@ class UserPlaylistItem extends React.Component {
             alt={playlistName}
           />
 
-          <i className="far fa-play-circle fade" role="presentation" onClick={this.handleClick('show')} />
-          <i className="fas fa-times" role="presentation" title="delete playlist" onClick={this.handleClick('delete')} />
-          {/* <i className="fas fa-heart" title="Like" /> */}
+          {/* <i className="far fa-play-circle fade" role="presentation" onClick={this.handleClick('play')} /> */}
+          <i className="fas fa-trash-alt" role="presentation" title="delete playlist" onClick={this.handleClick('delete')} />
         </figure>
 
-        <a>{playlistName}</a>
+        <Link
+          onClick={this.handleClick('show')}
+          to={`/playlists/${playlistId}`}
+          style={{ textDecoration: 'underline' }}
+        >
+          {playlistName}
+        </Link>
       </div>
     );
   }

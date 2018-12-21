@@ -26,16 +26,21 @@ class SongIndexItemHC extends React.Component {
       e.preventDefault();
       e.stopPropagation();
 
-      const { playSong, addSongToList } = this.props;
+      const { playSong, addSongToList, removePlaylistSong } = this.props;
 
-      const { id } = this.props;
+      const { id, playlistSongs } = this.props;
       const playIcon = document.getElementById('play-icon');
-
+      // debugger;
 
       switch (type) {
         case 'add':
           addSongToList(id);
           break;
+        case 'remove': {
+          const playlistSongToRemvove = playlistSongs.filter(playlistSong => playlistSong.songId === id);
+          removePlaylistSong(playlistSongToRemvove[0].id);
+          break;
+        }
         default:
           if (playIcon) playIcon.click();
           playSong(id, this.findPlayingSongIdx());
@@ -45,7 +50,28 @@ class SongIndexItemHC extends React.Component {
   }
 
   render() {
-    const { title, artist, albumCover } = this.props;
+    const {
+      title, artist, albumCover, playlistId,
+    } = this.props;
+
+    let plusHeart;
+    let trashCan;
+    if (!playlistId) {
+      plusHeart = (
+        <>
+          <i className="fas fa-plus" role="presentation" title="Add to current Playlist" onClick={this.handleClick('add')} />
+          <i className="fas fa-heart" title="Like" />
+        </>
+      );
+    } else {
+      trashCan = (
+        <i
+          className="fas fa-trash-alt"
+          role="presentation"
+          onClick={this.handleClick('remove')}
+        />
+      );
+    }
 
     return (
       <div className="song-item-container">
@@ -53,8 +79,8 @@ class SongIndexItemHC extends React.Component {
           <img className="song-img" src={albumCover} alt={title} />
 
           <i className="far fa-play-circle fade" role="presentation" onClick={this.handleClick('play')} />
-          <i className="fas fa-plus" role="presentation" title="Add to current Playlist" onClick={this.handleClick('add')} />
-          <i className="fas fa-heart" title="Like" />
+          {plusHeart}
+          {trashCan}
         </figure>
 
         <a>{title}</a>
@@ -64,18 +90,18 @@ class SongIndexItemHC extends React.Component {
   }
 }
 
-SongIndexItemHC.defaultProps = {
-  playingSongTitles: [],
-};
+// SongIndexItemHC.defaultProps = {
+//   playingSongTitles: [],
+// };
 
-SongIndexItemHC.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  artist: PropTypes.string.isRequired,
-  albumCover: PropTypes.string.isRequired,
-  playingSongTitles: PropTypes.arrayOf(PropTypes.string),
-  playSong: PropTypes.func.isRequired,
-  addSongToList: PropTypes.func.isRequired,
-};
+// SongIndexItemHC.propTypes = {
+//   id: PropTypes.number.isRequired,
+//   title: PropTypes.string.isRequired,
+//   artist: PropTypes.string.isRequired,
+//   albumCover: PropTypes.string.isRequired,
+//   playingSongTitles: PropTypes.arrayOf(PropTypes.string),
+//   playSong: PropTypes.func.isRequired,
+//   addSongToList: PropTypes.func.isRequired,
+// };
 
 export default SongIndexItemHC;
