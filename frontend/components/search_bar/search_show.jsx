@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withCookies } from 'react-cookie';
 import { receiveSongs } from '../../actions/song_actions';
-import SongIndexHC from '../song_index_HC';
+import SongIndexHC from '../songs';
 import { playSong, addSongToList, addSongsToList } from '../../actions/audio_player_actions';
 
 class SearchShow extends React.Component {

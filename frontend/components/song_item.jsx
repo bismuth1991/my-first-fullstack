@@ -10,14 +10,13 @@ class SongItem extends React.Component {
   }
 
   findPlayingSongIdx() {
-    const { playingSongTitles } = this.props;
-    // debugger;
+    const { currentlyPlayingTitles } = this.props;
 
     const marquee = document.getElementsByClassName('marquee')[0];
     if (marquee) {
-      const playingSongTitle = marquee.innerHTML.split(' - ')[1];
-      const playingSongIdx = playingSongTitles.indexOf(playingSongTitle);
-      if (playingSongIdx) return playingSongIdx;
+      const currentlyPlaying = marquee.innerHTML.split(' - ')[1];
+      const currentlyPlayingIdx = currentlyPlayingTitles.indexOf(currentlyPlaying);
+      if (currentlyPlayingIdx) return currentlyPlayingIdx;
     }
     return 0;
   }
@@ -27,11 +26,12 @@ class SongItem extends React.Component {
       e.preventDefault();
       e.stopPropagation();
 
-      const { playSong, addSongToList, removePlaylistSong } = this.props;
+      const {
+        playSong, addSongToList, removePlaylistSong, removeSongFromList,
+      } = this.props;
 
       const { id, playlistSongs } = this.props;
       const playIcon = document.getElementById('play-icon');
-      // debugger;
 
       switch (type) {
         case 'add':
@@ -39,14 +39,21 @@ class SongItem extends React.Component {
           break;
         case 'remove': {
           const playlistSongToRemvove = playlistSongs.filter(playlistSong => playlistSong.songId === id);
-          removePlaylistSong(playlistSongToRemvove[0].id);
+          if (playlistSongToRemvove) removePlaylistSong(playlistSongToRemvove[0].id);
+
+          removeSongFromList(id);
           break;
         }
-        default:
+        case 'play':
           if (playIcon) playIcon.click();
+
           playSong(id, this.findPlayingSongIdx());
           window.setTimeout(() => document.getElementById('play-icon').click(), 500);
+          break;
+        default:
+          return null;
       }
+      return null;
     };
   }
 

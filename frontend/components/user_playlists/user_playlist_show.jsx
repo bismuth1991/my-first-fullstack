@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withCookies } from 'react-cookie';
-import SongIndexHC from '../song_index_HC';
+import SongIndexHC from '../songs';
 import UserPlaylistForm from './user_playlist_form';
 import { playSong, removeSongFromList, addSongsToList } from '../../actions/audio_player_actions';
 import { createPlaylist, editPlaylist, fetchUserPlaylist } from '../../actions/user_playlist_actions';

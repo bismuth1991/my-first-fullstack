@@ -7,12 +7,15 @@ import Songs from './songs';
 
 const mapStateToprops = (state) => {
   const { session: { audioPlayer } } = state;
-  const { songs } = state;
+  const { entities: { songs } } = state;
 
-  const curentlyPlayingTitles = audioPlayer.map(songId => songs[songId].title);
+  let currentlyPlayingTitles;
+  if (audioPlayer.length !== 0) {
+    currentlyPlayingTitles = audioPlayer.map(songId => songs[songId].title);
+  }
 
   return {
-    curentlyPlayingTitles,
+    currentlyPlayingTitles,
   };
 };
 

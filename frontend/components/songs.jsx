@@ -34,9 +34,9 @@ const Songs = (props) => {
         <ul className="grid grid-gutter padding-left">
           {songs.map(song => (
             <li className="grid-cell u-full u-med-1of2 u-large-1of3 u-xlarge-1of4" key={song.id}>
-              <SongIndexItemHC
+              <SongItem
                 {...song}
-                {...this.props}
+                {...props}
               />
             </li>
           ))}

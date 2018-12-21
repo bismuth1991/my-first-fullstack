@@ -1,5 +1,5 @@
 import React from 'react';
-import SongIndexHC from '../song_index_HC';
+import SongsContainer from '../songs_container';
 
 class SongIndex extends React.Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class SongIndex extends React.Component {
 
   render() {
     return (
-      <SongIndexHC {...this.props} />
+      <SongsContainer {...this.props} />
     );
   }
 }
