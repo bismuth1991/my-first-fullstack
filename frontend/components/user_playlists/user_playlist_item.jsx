@@ -10,17 +10,24 @@ class UserPlaylistItem extends React.Component {
   }
 
   handleClick(type) {
-    return () => {
-      const { playlistId, deleteUserPlaylist, fetchUserPlaylist } = this.props;
+    return (e) => {
+      e.stopPropagation();
+
+      const { deleteUserPlaylist, fetchUserPlaylist } = this.props;
+
+      const { match: { params: { playlistId } } } = this.props;
 
       switch (type) {
         case 'delete':
-          deleteUserPlaylist(playlistId);
-          window.location.hash = '/';
+          if (this.props.playlistId === parseInt(playlistId)) {
+            window.location.hash = '/home';
+          }
+          deleteUserPlaylist(this.props.playlistId);
           break;
         default:
-          fetchUserPlaylist(playlistId);
+          return null;
       }
+      return null;
     };
   }
 
@@ -45,7 +52,7 @@ class UserPlaylistItem extends React.Component {
         </figure>
 
         <Link
-          onClick={this.handleClick('show')}
+          // onClick={this.handleClick('show')}
           to={`/playlists/${playlistId}`}
           style={{ textDecoration: 'underline' }}
         >

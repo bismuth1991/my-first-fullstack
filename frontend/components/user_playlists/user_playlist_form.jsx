@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addSongsToList } from '../../actions/audio_player_actions';
 
 class UserPlaylistForm extends React.Component {
   constructor(props) {
@@ -22,9 +24,9 @@ class UserPlaylistForm extends React.Component {
     return (e) => {
       e.preventDefault();
 
-      const { playlistNameInput, songIds } = this.state;
+      const { playlistNameInput } = this.state;
       const {
-        savePlaylist, editPlaylist, playingSongIds, userId, playlistId, addSongsToAudioPlayer,
+        savePlaylist, editPlaylist, playingSongIds, userId, playlistId, addSongsToList,
       } = this.props;
 
       switch (type) {
@@ -36,7 +38,7 @@ class UserPlaylistForm extends React.Component {
           });
           break;
         case 'play':
-          addSongsToAudioPlayer(playingSongIds);
+          addSongsToList(playingSongIds);
           break;
         default:
           savePlaylist(playlistNameInput, userId, playingSongIds);
@@ -90,4 +92,11 @@ class UserPlaylistForm extends React.Component {
   }
 }
 
-export default UserPlaylistForm;
+const mapDispatchToProps = dispatch => ({
+  addSongsToList: songIds => dispatch(addSongsToList(songIds)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(UserPlaylistForm);

@@ -13,7 +13,7 @@ class UserPlaylistIndex extends React.Component {
 
   render() {
     const {
-      userPlaylists, currentUser, fetchUserPlaylist, addSongsToList, deleteUserPlaylist,
+      userPlaylists, currentUser, fetchUserPlaylist, addSongsToList, deleteUserPlaylist, match,
     } = this.props;
 
     if (currentUser.id === null) return null;
@@ -32,6 +32,7 @@ class UserPlaylistIndex extends React.Component {
                   fetchUserPlaylist={fetchUserPlaylist}
                   addSongsToList={addSongsToList}
                   deleteUserPlaylist={deleteUserPlaylist}
+                  match={match}
                 />
               </li>
             ))}
