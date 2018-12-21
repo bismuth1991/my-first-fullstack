@@ -3,10 +3,9 @@ import SearchBar from './search_bar';
 import { fetchQueryData } from '../../actions/search_bar_actions';
 import { receiveQuerySongs } from '../../actions/song_actions';
 
-const mapStateToProps = ({ entities: { searchBar: { songs, artists, albums } } }) => ({
-  songs: Object.values(songs),
-  artists,
-  albums,
+const mapStateToProps = ({ entities: { searchBar } }) => ({
+  ...searchBar,
+  songsForShow: Object.values(searchBar.songsForShow),
 });
 
 const mapDispatchToProps = dispatch => ({

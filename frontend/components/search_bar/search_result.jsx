@@ -5,7 +5,7 @@ import AlbumItem from './album_item';
 
 const SearchResult = ({
   query,
-  songs,
+  songsForShow,
   artists,
   albums,
 }) => (!query ? null
@@ -18,7 +18,7 @@ const SearchResult = ({
             SONGS
           </div>
 
-          {songs.map(song => (
+          {songsForShow.map(song => (
             <li key={song.id}>
               <SongItem title={song.title} artist={song.artist} album={song.album} />
             </li>

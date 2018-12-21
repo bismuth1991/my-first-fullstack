@@ -47,7 +47,7 @@ class SearchBar extends React.Component {
 
   render() {
     const { query } = this.state;
-    const { songs, artists, albums } = this.props;
+    const { songsForShow, artists, albums } = this.props;
 
     return (
       <div className="search-bar">
@@ -64,7 +64,7 @@ class SearchBar extends React.Component {
 
         <SearchResult
           query={query}
-          songs={songs.slice(0, 3)}
+          songsForShow={songsForShow}
           artists={artists}
           albums={albums}
         />
@@ -74,20 +74,26 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.defaultProps = {
-  songs: [],
+  songsForShow: {},
   artists: [],
   albums: [],
 };
 
 SearchBar.propTypes = {
-  songs: PropTypes.arrayOf(PropTypes.shape({
+  songsForShow: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
     title: PropTypes.string,
     artist: PropTypes.string,
     album: PropTypes.string,
   })),
-
-  artists: PropTypes.instanceOf(Array),
-  albums: PropTypes.instanceOf(Array),
+  artists: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+  })),
+  albums: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+  })),
 
   fetchQueryData: PropTypes.func.isRequired,
   receiveQuerySongs: PropTypes.func.isRequired,

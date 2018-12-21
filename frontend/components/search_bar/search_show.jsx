@@ -2,35 +2,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withCookies } from 'react-cookie';
 import { receiveSongs } from '../../actions/song_actions';
-import SongIndexHC from '../songs';
+import SongsContainer from '../songs_container';
 import { playSong, addSongToList, addSongsToList } from '../../actions/audio_player_actions';
 
-class SearchShow extends React.Component {
-  componentDidMount() {
+const SearchShow = props => (
+  <SongsContainer {...props} />
+);
 
-  }
-
-  render() {
-    return (
-      <SongIndexHC {...this.props} />
-    );
-  }
-}
-
-const mapStateToProps = ({ entities: { searchBar: { songs } } }) => ({
-  // songs: songIds.map(songId => songs[songId]),
-  songs: Object.values(songs),
+const mapStateToProps = ({ entities: { songs, searchBar: { songIds } } }) => ({
+  songs: songIds.map(songId => songs[songId]),
 });
 
-const mapDispatchToProps = dispatch => ({
-  receiveSongs: songs => dispatch(receiveSongs(songs)),
-  playSong: (songId, playingSongId) => dispatch(playSong(songId, playingSongId)),
-  addSongToList: songId => dispatch(addSongToList(songId)),
-  addSongsToList: songIds => dispatch(addSongsToList(songIds)),
-  addSongsToAudioPlayer: songIds => dispatch(addSongsToList(songIds)),
-});
+// const mapDispatchToProps = dispatch => ({
+// receiveSongs: songs => dispatch(receiveSongs(songs)),
+// playSong: (songId, playingSongId) => dispatch(playSong(songId, playingSongId)),
+// addSongToList: songId => dispatch(addSongToList(songId)),
+// addSongsToList: songIds => dispatch(addSongsToList(songIds)),
+// addSongsToAudioPlayer: songIds => dispatch(addSongsToList(songIds)),
+// });
 
-export default withCookies(connect(
+export default connect(
   mapStateToProps,
-  mapDispatchToProps,
-)(SearchShow));
+  // mapDispatchToProps,
+  null,
+)(SearchShow);
